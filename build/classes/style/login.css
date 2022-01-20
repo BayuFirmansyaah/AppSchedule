@@ -3,7 +3,8 @@
  */
 
 .mainFxmlClass {
-    .wrap-center{
-        background: red;
+    .box{
+        -fx-background-image: url("../image/bg_login.png");
+        -fx-background-color: red;
     }
 }
