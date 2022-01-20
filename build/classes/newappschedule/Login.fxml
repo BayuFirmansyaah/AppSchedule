@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #3832FA;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="300.0" style="-fx-background-radius: 0px; -fx-max-width: 683px; -fx-opacity: 0.5; -fx-background-color: red;" styleClass="wrap-center" stylesheets="@../style/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: yellow; -fx-max-width: 683px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="683.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
