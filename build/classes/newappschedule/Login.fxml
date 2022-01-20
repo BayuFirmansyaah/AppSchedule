@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -96,6 +97,10 @@
       </AnchorPane>
    </right>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="box" stylesheets="@../style/login.css" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../style/login.css" BorderPane.alignment="CENTER">
+         <styleClass>
+            <String fx:value="box" />
+            <String fx:value="mainFxmlClass" />
+         </styleClass></AnchorPane>
    </center>
 </BorderPane>

@@ -2,9 +2,11 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+
     .box{
-        -fx-background-image: url("../image/bg_login.png");
-        -fx-background-color: red;
+        -fx-background-image: url(../image/bg_login.png);
+        -fx-background-repeat: no-repeat;
+        -fx-background-size: 100% 100%;
+        -fx-background-position: center center;
     }
-}
+
