@@ -28,7 +28,7 @@
                         </TableView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="289.0" layoutY="6.0" prefHeight="397.0" prefWidth="243.0" style="-fx-background-color: pink; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="289.0" layoutY="6.0" prefHeight="397.0" prefWidth="243.0" style="-fx-background-color: #303D7A; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane layoutY="3.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                            <children>
@@ -90,7 +90,7 @@
                               <Font name="Poppins Regular" size="20.0" />
                            </font>
                         </Text>
-                        <Button layoutX="23.0" layoutY="343.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <Button layoutX="23.0" layoutY="343.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="16.0" />
                            </font>
@@ -130,7 +130,7 @@
             </AnchorPane>
             <AnchorPane layoutX="16.0" layoutY="79.0" prefHeight="39.0" prefWidth="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                <children>
-                  <Button layoutX="-2.0" layoutY="6.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Jadwal Laboratorium" textFill="WHITE" AnchorPane.topAnchor="10.0">
+                  <Button layoutX="-2.0" layoutY="6.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Informasi Jadwal" textFill="WHITE" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="Poppins Regular" size="15.0" />
                      </font>
