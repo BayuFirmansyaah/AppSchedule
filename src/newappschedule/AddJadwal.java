@@ -25,7 +25,7 @@ public class AddJadwal extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("AddJadwal.fxml"));
         
-        Scene scene = new Scene(root, 750, 450);
+        Scene scene = new Scene(root, 800, 500);
         stage.setTitle("Add Jadwal (Not Responding)");
         stage.setScene(scene);
         stage.show();
