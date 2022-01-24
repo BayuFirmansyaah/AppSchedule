@@ -19,16 +19,16 @@ import javafx.stage.Stage;
  *
  * @author bayu firmansyah
  */
-public class Login extends Application {
+public class DashboardLogin extends Application {
     
      @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("DashboardLogin.fxml"));
         
-         Scene scene = new Scene(root, 800, 500);
-        stage.setTitle("Login (Not Responding)");
-        stage.setScene(scene);
+        Scene scene = new Scene(root, 800, 500);
+        stage.setTitle("Dashboard (Not Responding)");
         stage.setMaximized(true);
+        stage.setScene(scene);
         stage.show();
     }
 

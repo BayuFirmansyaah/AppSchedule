@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newappschedule.ManageJadwalController">
    <center>
       <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="362.0" style="-fx-background-color: #DAEDD2;" BorderPane.alignment="CENTER">
          <children>
@@ -135,7 +135,7 @@
             </AnchorPane>
             <AnchorPane layoutX="16.0" layoutY="79.0" prefHeight="39.0" prefWidth="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                <children>
-                  <Button layoutX="-2.0" layoutY="6.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Informasi Jadwal" textFill="WHITE" AnchorPane.topAnchor="10.0">
+                  <Button fx:id="informasiJadwal" layoutX="-2.0" layoutY="6.0" mnemonicParsing="false" onAction="#informasiPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Informasi Jadwal" textFill="WHITE" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="Poppins Regular" size="15.0" />
                      </font>
@@ -144,7 +144,7 @@
             </AnchorPane>
             <AnchorPane layoutX="26.0" layoutY="151.0" prefHeight="39.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="-2.0" layoutY="6.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Tambah Jadwal" textFill="WHITE" AnchorPane.topAnchor="10.0">
+                  <Button fx:id="TambahJadwal" layoutX="-2.0" layoutY="6.0" mnemonicParsing="false" onAction="#tambahPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Tambah Jadwal" textFill="WHITE" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font name="Poppins Regular" size="15.0" />
                      </font>
@@ -153,7 +153,7 @@
             </AnchorPane>
             <AnchorPane layoutX="26.0" layoutY="343.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #05B23A;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
                <children>
-                  <Button layoutX="-3.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #05B23A;" text="Keluar" textFill="WHITE">
+                  <Button fx:id="Keluar" layoutX="-3.0" layoutY="-2.0" mnemonicParsing="false" onAction="#keluarPage" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #05B23A;" text="Keluar" textFill="WHITE">
                      <font>
                         <Font name="Poppins Regular" size="16.0" />
                      </font>
@@ -162,7 +162,7 @@
             </AnchorPane>
             <AnchorPane layoutX="26.0" layoutY="218.0" prefHeight="39.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="-1.0" layoutY="16.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Manage Jadwal" textFill="WHITE" AnchorPane.topAnchor="16.0">
+                  <Button fx:id="ManageJadwal" layoutX="-1.0" layoutY="16.0" mnemonicParsing="false" onAction="#managePage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Manage Jadwal" textFill="WHITE" AnchorPane.topAnchor="16.0">
                      <font>
                         <Font name="Poppins Regular" size="15.0" />
                      </font>
