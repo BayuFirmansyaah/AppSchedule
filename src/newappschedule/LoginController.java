@@ -44,6 +44,8 @@ public class LoginController implements Initializable {
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
             window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();

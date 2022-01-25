@@ -63,6 +63,8 @@ public class ManageJadwalController implements Initializable {
             window.setScene(scene);
             window.setTitle("Dashboard");
             window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -77,7 +79,10 @@ public class ManageJadwalController implements Initializable {
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
             window.setTitle("Tambah Jadwal");
-            window.setMaximized(true);;
+            window.setMaximized(true);
+            window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -93,6 +98,9 @@ public class ManageJadwalController implements Initializable {
             window.setScene(scene);
             window.setTitle("Manage Jadwal");
             window.setMaximized(true);
+            window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -108,6 +116,9 @@ public class ManageJadwalController implements Initializable {
             window.setScene(scene);
             window.setTitle("Login");
             window.setMaximized(true);
+            window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -123,6 +134,9 @@ public class ManageJadwalController implements Initializable {
             window.setScene(scene);
             window.setTitle("Dashboard");
             window.setMaximized(true);
+            window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -138,6 +152,9 @@ public class ManageJadwalController implements Initializable {
             window.setScene(scene);
             window.setTitle("Dashboard");
             window.setMaximized(true);
+            window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -153,6 +170,9 @@ public class ManageJadwalController implements Initializable {
             window.setScene(scene);
             window.setTitle("Tambah Akun");
             window.setMaximized(true);
+            window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();

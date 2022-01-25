@@ -29,6 +29,8 @@ public class DashboardLogin extends Application {
         stage.setTitle("Dashboard (Not Responding)");
         stage.centerOnScreen();
         stage.setMaximized(true);
+        stage.setFullScreen(true);
+        stage.centerOnScreen();
         stage.setScene(scene);
         stage.show();
     }

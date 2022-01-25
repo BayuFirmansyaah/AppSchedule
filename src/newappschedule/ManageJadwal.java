@@ -30,6 +30,8 @@ public class ManageJadwal extends Application {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setMaximized(true);
+        stage.setFullScreen(true);
+        stage.centerOnScreen();
         stage.show();
     }
 
