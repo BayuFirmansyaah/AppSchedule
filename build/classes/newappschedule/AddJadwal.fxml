@@ -164,6 +164,15 @@
                   </Button>
                </children>
             </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="288.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="ManageJadwal1" layoutX="-1.0" layoutY="16.0" mnemonicParsing="false" onAction="#managePage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Tambah Akun" textFill="WHITE" AnchorPane.topAnchor="16.0">
+                     <font>
+                        <Font name="Poppins Regular" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </left>

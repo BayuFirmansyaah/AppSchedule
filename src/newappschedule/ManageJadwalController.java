@@ -50,6 +50,9 @@ public class ManageJadwalController implements Initializable {
      
     @FXML
     private Button dashboardJadwal;
+    
+     @FXML
+    private Button tambahAkunBTN;
 
     @FXML
     void informasiPage(ActionEvent event) {
@@ -134,6 +137,21 @@ public class ManageJadwalController implements Initializable {
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
             window.setTitle("Dashboard");
+            window.setMaximized(true);
+            window.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    
+      @FXML
+    void tambahAkunPage(ActionEvent event) {
+        try{
+            Parent parent = FXMLLoader.load(getClass().getResource("TambahAkun.fxml"));
+            Scene scene = new Scene(parent);
+            Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.setTitle("Tambah Akun");
             window.setMaximized(true);
             window.show();
         }catch(IOException e){
