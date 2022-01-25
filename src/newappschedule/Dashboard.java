@@ -24,9 +24,10 @@ public class Dashboard extends Application {
      @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-        
+       
         Scene scene = new Scene(root, 800, 500);
         stage.setTitle("Dashboard (Not Responding)");
+        stage.centerOnScreen();
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();

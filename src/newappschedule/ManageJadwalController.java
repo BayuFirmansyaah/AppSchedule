@@ -47,6 +47,9 @@ public class ManageJadwalController implements Initializable {
      
      @FXML
     private Button Login;
+     
+    @FXML
+    private Button dashboardJadwal;
 
     @FXML
     void informasiPage(ActionEvent event) {
@@ -55,6 +58,8 @@ public class ManageJadwalController implements Initializable {
             Scene scene = new Scene(parent);
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
+            window.setTitle("Dashboard");
+            window.setMaximized(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -68,6 +73,8 @@ public class ManageJadwalController implements Initializable {
             Scene scene = new Scene(parent);
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
+            window.setTitle("Tambah Jadwal");
+            window.setMaximized(true);;
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -81,6 +88,8 @@ public class ManageJadwalController implements Initializable {
             Scene scene = new Scene(parent);
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
+            window.setTitle("Manage Jadwal");
+            window.setMaximized(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -94,6 +103,8 @@ public class ManageJadwalController implements Initializable {
             Scene scene = new Scene(parent);
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
+            window.setTitle("Login");
+            window.setMaximized(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
@@ -107,6 +118,23 @@ public class ManageJadwalController implements Initializable {
             Scene scene = new Scene(parent);
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
+            window.setTitle("Dashboard");
+            window.setMaximized(true);
+            window.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    void dashboardPage(ActionEvent event) {
+        try{
+            Parent parent = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+            Scene scene = new Scene(parent);
+            Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.setTitle("Dashboard");
+            window.setMaximized(true);
             window.show();
         }catch(IOException e){
             e.printStackTrace();
