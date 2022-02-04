@@ -5,8 +5,11 @@
  */
 package newappschedule;
 
+import database.KoneksiDatabase;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,8 +19,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+import javax.swing.JOptionPane;
+import database.KoneksiDatabase;
 /**
  * FXML Controller class
  *
@@ -53,6 +58,54 @@ public class TambahAkunController implements Initializable {
     
      @FXML
     private Button tambahAkunBTN;
+     
+      @FXML
+    private Button b_tambahData;
+      
+       @FXML
+    private TextField password;
+
+    @FXML
+    private TextField r_password;
+    
+    @FXML
+    private TextField username;
+    
+ 
+//     add account backend fitur
+    @FXML
+    void insertData(ActionEvent event) {
+           String textUsername = username.getText().trim();
+           String textPassword = password.getText().trim();
+           String textRPassword = r_password.getText().trim();
+           
+           
+           if(textPassword.equals(textRPassword)){
+               try{
+                int id;
+                String sql = "INSERT INTO akun VALUES(id,'"+textUsername+"','"+textRPassword+"')";
+                java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                pst.execute();
+//            alert
+                JOptionPane.showMessageDialog(null, "Data Berhasil Ditambahkan");
+                
+//            pengkosongan data akun
+                username.setText("");
+                password.setText("");
+                r_password.setText("");
+
+            }catch(SQLException e){
+                //            alert
+                JOptionPane.showMessageDialog(null, e);
+
+            }
+           }else{
+               JOptionPane.showMessageDialog(null, "Password doesn't Match!!");
+               r_password.setText("");
+           }
+
+    }
 
     @FXML
     void informasiPage(ActionEvent event) {

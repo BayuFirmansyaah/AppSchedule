@@ -42,7 +42,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="46.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="username" alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -60,7 +60,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="126.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="password" alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -76,22 +76,12 @@
                               </Text>
                            </children>
                         </AnchorPane>
-                        <TextField alignment="TOP_RIGHT" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <TextField fx:id="r_password" alignment="TOP_RIGHT" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField alignment="TOP_RIGHT" layoutX="20.0" layoutY="287.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-                           <font>
-                              <Font name="Poppins Regular" size="18.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="20.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level" textAlignment="RIGHT" wrappingWidth="225.13671875">
-                           <font>
-                              <Font name="Poppins Regular" size="20.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="23.0" layoutY="343.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <Button fx:id="b_tambahData" layoutX="23.0" layoutY="343.0" mnemonicParsing="false" onAction="#insertData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="16.0" />
                            </font>
