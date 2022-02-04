@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newappschedule.ManageJadwalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newappschedule.AddJadwalController">
    <center>
       <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="362.0" style="-fx-background-color: #DAEDD2;" BorderPane.alignment="CENTER">
          <children>
@@ -43,7 +43,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="46.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="nama_kelas" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -61,7 +61,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="126.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="hari_penggunaan" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -77,12 +77,12 @@
                               </Text>
                            </children>
                         </AnchorPane>
-                        <TextField alignment="TOP_RIGHT" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <TextField fx:id="lama_penggunaan" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField alignment="TOP_RIGHT" layoutX="20.0" layoutY="287.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <TextField fx:id="kode_laboratorium" layoutX="20.0" layoutY="287.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
@@ -92,7 +92,7 @@
                               <Font name="Poppins Regular" size="20.0" />
                            </font>
                         </Text>
-                        <Button layoutX="23.0" layoutY="343.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <Button fx:id="tambahDataBtn" layoutX="23.0" layoutY="343.0" mnemonicParsing="false" onAction="#addData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="16.0" />
                            </font>

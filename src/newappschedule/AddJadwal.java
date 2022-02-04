@@ -29,7 +29,7 @@ public class AddJadwal extends Application {
         stage.setTitle("Add Jadwal (Not Responding)");
         stage.centerOnScreen();
         stage.setMaximized(true);
-        stage.setFullScreen(true);
+//        stage.setFullScreen(true);
         stage.centerOnScreen();
         stage.setScene(scene);
         stage.show();
