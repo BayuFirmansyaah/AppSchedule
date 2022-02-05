@@ -26,11 +26,10 @@ public class Login extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         
          Scene scene = new Scene(root, 800, 500);
-        stage.setTitle("Login (Not Responding)");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setMaximized(true);
-        stage.setFullScreen(true);
         stage.centerOnScreen();
         stage.show();
     }

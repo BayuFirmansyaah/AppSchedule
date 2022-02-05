@@ -88,7 +88,7 @@ public class TambahAkunController implements Initializable {
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                 pst.execute();
 //            alert
-                JOptionPane.showMessageDialog(null, "Data Berhasil Ditambahkan");
+//                JOptionPane.showMessageDialog(null, "Data Berhasil Ditambahkan");
                 
 //            pengkosongan data akun
                 username.setText("");
@@ -101,7 +101,7 @@ public class TambahAkunController implements Initializable {
 
             }
            }else{
-               JOptionPane.showMessageDialog(null, "Password doesn't Match!!");
+//               JOptionPane.showMessageDialog(null, "Password doesn't Match!!");
                r_password.setText("");
            }
 

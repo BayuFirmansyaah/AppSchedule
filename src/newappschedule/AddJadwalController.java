@@ -129,7 +129,7 @@ public class AddJadwalController implements Initializable {
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                 pst.execute();
 //            alert
-                JOptionPane.showMessageDialog(null, "Data Berhasil Ditambahkan");
+//                JOptionPane.showMessageDialog(null, "Data Berhasil Ditambahkan");
 
 //            pengkosongan jadwal
                 nama_kelas.setText("");
@@ -138,7 +138,7 @@ public class AddJadwalController implements Initializable {
                 kode_laboratorium.setText("");
             }catch(SQLException e){
                 //            alert
-                JOptionPane.showMessageDialog(null, e);
+//                JOptionPane.showMessageDialog(null, e);
 
             }
             
