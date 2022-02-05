@@ -60,15 +60,13 @@ public class LoginController implements Initializable {
 
     @FXML
     void actionLogin(ActionEvent event) {
-        notif_username.setText("");
-        notif_password.setText("");
            try{
                java.sql.Statement stm = (Statement)KoneksiDatabase.koneksiDB().createStatement();
                java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun WHERE username='"+username.getText()+"'");
                if(rst.next()){
                     if(password.getText().equals(rst.getString("password"))){
                         try{
-                            Parent parent = FXMLLoader.load(getClass().getResource("DashboardLogin.fxml"));
+                            Parent parent = FXMLLoader.load(getClass().getResource("AddJadwal.fxml"));
                             Scene scene = new Scene(parent);
                             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
                             window.setScene(scene);
@@ -76,6 +74,7 @@ public class LoginController implements Initializable {
                             window.setMaximized(true);
                             window.setMaximized(true);
                             window.centerOnScreen();
+                            window.setFullScreen(true);
                             window.show();
                         }catch(IOException e){
                             e.printStackTrace();
@@ -83,9 +82,7 @@ public class LoginController implements Initializable {
                     }else{
                         notif_password.setText("password wrong");
                     }
-                }else{
-                   notif_username.setText("username not found");
-               }
+                }
            }catch(SQLException e){
                notif_username.setText("username not found");
            }
