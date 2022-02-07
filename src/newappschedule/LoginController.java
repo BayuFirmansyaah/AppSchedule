@@ -70,11 +70,9 @@ public class LoginController implements Initializable {
                             Scene scene = new Scene(parent);
                             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
                             window.setScene(scene);
-                            window.setTitle("Tambah Jadwal");
-                            window.setMaximized(true);
+                            window.setTitle("Add Jadwal");
                             window.setMaximized(true);
                             window.centerOnScreen();
-                            window.setFullScreen(true);
                             window.show();
                         }catch(IOException e){
                             e.printStackTrace();

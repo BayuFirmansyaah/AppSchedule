@@ -26,7 +26,7 @@ public class AddJadwal extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("AddJadwal.fxml"));
         
         Scene scene = new Scene(root, 800, 500);
-        stage.setTitle("Add Jadwal (Not Responding)");
+        stage.setTitle("Add Jadwal ");
         stage.centerOnScreen();
         stage.setMaximized(true);
 //        stage.setFullScreen(true);

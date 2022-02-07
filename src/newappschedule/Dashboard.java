@@ -5,6 +5,8 @@
  */
 package newappschedule;
 
+import database.KoneksiDatabase;
+import java.sql.Connection;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,10 +28,9 @@ public class Dashboard extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
        
         Scene scene = new Scene(root, 800, 500);
-        stage.setTitle("Dashboard (Not Responding)");
+        stage.setTitle("Dashboard");
         stage.centerOnScreen();
         stage.setMaximized(true);
-        stage.setFullScreen(true);
         stage.centerOnScreen();
         stage.setScene(scene);
         stage.show();
