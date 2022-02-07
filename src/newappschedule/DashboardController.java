@@ -51,6 +51,8 @@ public class DashboardController implements Initializable {
 //         Stage window = (Stage) login.getScene().getWindow();
 //         window.setScene(new Scene(root,789,500));
             this.getData();
+            
+            System.out.println(this.jadwalSelasa);
     }
     
     
@@ -86,9 +88,7 @@ public class DashboardController implements Initializable {
             for(int i=1;i<=totalJam;i++){
                 this.jadwalSenin.add(kelas);
             }
-            
-            System.out.println(this.jadwalSenin);
-            
+                      
         }else if(hari == "SELASA"){
             int totalJam = this.convertJam(jam);
             
@@ -96,7 +96,6 @@ public class DashboardController implements Initializable {
                 this.jadwalSelasa.add(kelas);
             }
             
-            System.out.println(this.jadwalSelasa);
         }else if(hari == "RABU"){
            int totalJam = this.convertJam(jam);
             
@@ -104,7 +103,6 @@ public class DashboardController implements Initializable {
                 this.jadwalRabu.add(kelas);
             }
             
-            System.out.println(this.jadwalRabu);
         }else if(hari == "KAMIS"){
            int totalJam = this.convertJam(jam);
             
@@ -112,15 +110,13 @@ public class DashboardController implements Initializable {
                 this.jadwalKamis.add(kelas);
             }
             
-            System.out.println(this.jadwalKamis);
         }else{
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                 this.jadwalJumat.add(kelas);
             }
-            
-            System.out.println(this.jadwalJumat);
+
         }
     }
 
