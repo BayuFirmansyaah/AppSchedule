@@ -50,8 +50,11 @@ public class DashboardController implements Initializable {
 //         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
 //         Stage window = (Stage) login.getScene().getWindow();
 //         window.setScene(new Scene(root,789,500));
-
-
+            this.getData();
+    }
+    
+    
+    public void getData(){
         try{
             String r_hari,r_kelas,r_jam,r_kode;
             
@@ -73,9 +76,6 @@ public class DashboardController implements Initializable {
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
-        
-        
-         System.out.println(this.jadwalSelasa);
     }
     
     
