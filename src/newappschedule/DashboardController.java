@@ -25,34 +25,34 @@ import javafx.stage.Stage;
  * @author bayu firmansyah
  */
 public class DashboardController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
     
     @FXML
     Button login;
     
+    ArrayList<String> jadwalSenin = new ArrayList<String>();
+    ArrayList<String> jadwalSelasa = new ArrayList<String>();
+    ArrayList<String> jadwalRabu = new ArrayList<String>();
+    ArrayList<String> jadwalKamis = new ArrayList<String>();
+    ArrayList<String> jadwalJumat = new ArrayList<String>();
+    ArrayList<String> jadwalLab = new ArrayList<String>();
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        this.getData();
     } 
     
-    
-   ArrayList<String> jadwalSenin = new ArrayList<String>();
-   ArrayList<String> jadwalSelasa = new ArrayList<String>();
-   ArrayList<String> jadwalRabu = new ArrayList<String>();
-   ArrayList<String> jadwalKamis = new ArrayList<String>();
-   ArrayList<String> jadwalJumat = new ArrayList<String>();
-   ArrayList<String> jadwalLab = new ArrayList<String>();
-    
+       
     public void handdleButonLogin () throws Exception{
 //         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
 //         Stage window = (Stage) login.getScene().getWindow();
 //         window.setScene(new Scene(root,789,500));
-            this.getData();
-            
-            System.out.println(this.jadwalSelasa);
+            this.consoleLog();
+    }
+    
+    
+    public void consoleLog(){
+        System.out.print(this.jadwalSelasa);
     }
     
     
