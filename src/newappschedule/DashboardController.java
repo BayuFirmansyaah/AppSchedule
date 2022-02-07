@@ -50,9 +50,16 @@ public class DashboardController implements Initializable {
         try{
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal");
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal WHERE kode='%RPL1%'");
             if(rst.next()){
-                System.out.println(rst);
+                while(rst.next()){
+                    System.out.println(rst.getInt("id"));
+                    System.out.println(rst.getString("hari"));
+                    System.out.println(rst.getString("kelas"));
+                    System.out.println(rst.getString("jam"));
+                    System.out.println(rst.getString("kode"));
+                    System.out.println("=============================================");
+                }
             }else{
                 System.out.println("Data gagal di tampilkan");
             }
