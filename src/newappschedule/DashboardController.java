@@ -39,7 +39,11 @@ public class DashboardController implements Initializable {
     } 
     
     
-   ArrayList<String> dataJadwal = new ArrayList<String>();
+   ArrayList<String> jadwalSenin = new ArrayList<String>();
+   ArrayList<String> jadwalSelasa = new ArrayList<String>();
+   ArrayList<String> jadwalRabu = new ArrayList<String>();
+   ArrayList<String> jadwalKamis = new ArrayList<String>();
+   ArrayList<String> jadwalJumat = new ArrayList<String>();
     
     public void handdleButonLogin () throws Exception{
 //         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
@@ -53,20 +57,16 @@ public class DashboardController implements Initializable {
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal WHERE kode='rpl1'");
-//            if(rst.next()){
+
                 while(rst.next()){
                     r_hari = rst.getString("hari");
                     r_kelas = rst.getString("kelas");
                     r_jam = rst.getString("jam");
                     r_kode = rst.getString("kode");
-           
-                    this.filterData(r_hari, r_kelas, r_jam, r_kode);
-                    
-//                    System.out.println(rst.getInt("id"));
+       
+                    this.filterData(r_hari, r_kelas, r_jam, r_kode);             
                 }
-//            }else{
-//                System.out.println("Data gagal di tampilkan");
-//            }
+//            
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
@@ -76,22 +76,38 @@ public class DashboardController implements Initializable {
     public void filterData(String hari,String kelas,String jam,String kode){
         if(hari == "SENIN"){
             int totalJam = this.convertJam(jam);
-            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+            
+            for(int i=1;i<=totalJam;i++){
+                jadwalSenin.add(kelas);
+            }
+            
         }else if(hari == "SELASA"){
             int totalJam = this.convertJam(jam);
-            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+            
+            for(int i=1;i<=totalJam;i++){
+                jadwalSelasa.add(kelas);
+            }
         }else if(hari == "RABU"){
-            int totalJam = this.convertJam(jam);
-            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+           int totalJam = this.convertJam(jam);
+            
+            for(int i=1;i<=totalJam;i++){
+                jadwalRabu.add(kelas);
+            }
         }else if(hari == "KAMIS"){
-            int totalJam = this.convertJam(jam);
-            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+           int totalJam = this.convertJam(jam);
+            
+            for(int i=1;i<=totalJam;i++){
+                jadwalKamis.add(kelas);
+            }
         }else{
-            int totalJam = this.convertJam(jam);
-            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+           int totalJam = this.convertJam(jam);
+            
+            for(int i=1;i<=totalJam;i++){
+                jadwalJumat.add(kelas);
+            }
         }
     }
-    
+
     
     public int convertJam(String jam){
         int resultConvert = Integer.parseInt(jam);
