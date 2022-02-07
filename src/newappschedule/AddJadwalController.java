@@ -23,6 +23,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.sql.*;
 import database.KoneksiDatabase;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,34 +35,6 @@ import javax.swing.JOptionPane;
  * @author bayu firmansyah
  */
 public class AddJadwalController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
-    
-    // koneksi    
-//    private Connection conecction;
-//    private Statement statement;
-//    private ResultSet resultSet;
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-//        final String JDBC_Driver = "com.mysql.cj.jdbc.Driver";
-//        final String DB_URL = "jdbc:mysql://localhost/schedule";
-//        final String USERNAME_DB = "root";
-//        final String PASSWORD_DB = "";
-        
-//        try{
-//            Class.forName("com.mysql.jdbc.Driver");
-//            Connection connection = DriverManager.getConnection(DB_URL,USERNAME_DB,PASSWORD_DB);
-//            statement = connection.createStatement();
-//        } catch (ClassNotFoundException ex) {
-//           System.out.println("Driver JDBC failed : "+ex);
-//        } catch (SQLException ex) {
-//            System.out.println("Error "+ex);
-//        }
-    }  
-    
     
 //    element
     @FXML
@@ -100,10 +76,58 @@ public class AddJadwalController implements Initializable {
      @FXML
     private Button tambahDataBtn;
 
+//     =======================================================================================
+     
+      @FXML
+    private TableView<getDataJadwal> tableViewJadwal;
 
-     
-     
-     
+      @FXML
+    private TableColumn<getDataJadwal, String> columnHari;
+
+    @FXML
+    private TableColumn<getDataJadwal, String> columnJam;
+
+    @FXML
+    private TableColumn<getDataJadwal, String> columnKelas;
+
+    @FXML
+    private TableColumn<getDataJadwal, String> columnKode;
+    
+    
+    ObservableList<getDataJadwal> getDataJadwalObservableList = FXCollections.observableArrayList();
+
+//   =============================================================================================
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try{
+            String r_hari,r_kelas,r_jam,r_kode;
+            
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal");
+            
+            while(rst.next()){
+                String queryKelas = rst.getString("kelas");
+                String queryHari = rst.getString("hari");
+                String queryJam = rst.getString("jam");
+                String queryKode = rst.getString("kode");
+                
+                getDataJadwalObservableList.add(new getDataJadwal(queryKelas,queryHari,queryJam,queryKode));
+            }
+            
+            
+            tableViewJadwal.setItems(getDataJadwalObservableList);
+                                           
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }
+    }  
+    
+    
+    
+//   ================================================================================================== 
+    
 // Tambah Data    
      @FXML
     void addData(ActionEvent event) {
