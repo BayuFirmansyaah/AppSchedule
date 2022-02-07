@@ -52,19 +52,21 @@ public class DashboardController implements Initializable {
             
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal WHERE kode='RPL1'");
-            if(rst.next()){
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal WHERE kode='rpl1'");
+//            if(rst.next()){
                 while(rst.next()){
-                    r_hari = rst.getString("hari");
-                    r_kelas = rst.getString("kelas");
-                    r_jam = rst.getString("jam");
-                    r_kode = rst.getString("kode");
-            
-                    this.filterData(r_hari, r_kelas, r_jam, r_kode);
+//                    r_hari = rst.getString("hari");
+//                    r_kelas = rst.getString("kelas");
+//                    r_jam = rst.getString("jam");
+//                    r_kode = rst.getString("kode");
+//           
+//                    this.filterData(r_hari, r_kelas, r_jam, r_kode);
+                    
+                    System.out.println(rst.getInt("id"));
                 }
-            }else{
-                System.out.println("Data gagal di tampilkan");
-            }
+//            }else{
+//                System.out.println("Data gagal di tampilkan");
+//            }
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
