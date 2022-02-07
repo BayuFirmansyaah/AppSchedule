@@ -48,24 +48,53 @@ public class DashboardController implements Initializable {
 
 
         try{
+            String r_hari,r_kelas,r_jam,r_kode;
+            
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal WHERE kode='RPL1'");
-//            if(rst.next()){
+            if(rst.next()){
                 while(rst.next()){
-                    System.out.println(rst.getInt("id"));
-                    System.out.println(rst.getString("hari"));
-                    System.out.println(rst.getString("kelas"));
-                    System.out.println(rst.getString("jam"));
-                    System.out.println(rst.getString("kode"));
-                    System.out.println("=============================================");
+                    r_hari = rst.getString("hari");
+                    r_kelas = rst.getString("kelas");
+                    r_jam = rst.getString("jam");
+                    r_kode = rst.getString("kode");
+            
+                    this.filterData(r_hari, r_kelas, r_jam, r_kode);
                 }
-//            }else{
-//                System.out.println("Data gagal di tampilkan");
-//            }
+            }else{
+                System.out.println("Data gagal di tampilkan");
+            }
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
+    }
+    
+    
+    public void filterData(String hari,String kelas,String jam,String kode){
+        if(hari == "SENIN"){
+            int totalJam = this.convertJam(jam);
+            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+        }else if(hari == "SELASA"){
+            int totalJam = this.convertJam(jam);
+            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+        }else if(hari == "RABU"){
+            int totalJam = this.convertJam(jam);
+            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+        }else if(hari == "KAMIS"){
+            int totalJam = this.convertJam(jam);
+            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+        }else{
+            int totalJam = this.convertJam(jam);
+            System.out.println(hari+" | "+kelas+" | "+totalJam+" | "+kode);
+        }
+    }
+    
+    
+    public int convertJam(String jam){
+        int resultConvert = Integer.parseInt(jam);
+        
+        return resultConvert;
     }
     
     
