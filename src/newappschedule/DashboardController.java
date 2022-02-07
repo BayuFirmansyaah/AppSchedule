@@ -44,6 +44,7 @@ public class DashboardController implements Initializable {
    ArrayList<String> jadwalRabu = new ArrayList<String>();
    ArrayList<String> jadwalKamis = new ArrayList<String>();
    ArrayList<String> jadwalJumat = new ArrayList<String>();
+   ArrayList<String> jadwalLab = new ArrayList<String>();
     
     public void handdleButonLogin () throws Exception{
 //         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
@@ -66,6 +67,8 @@ public class DashboardController implements Initializable {
        
                     this.filterData(r_hari, r_kelas, r_jam, r_kode);             
                 }
+                
+                System.out.println(this.jadwalSelasa);
 //            
         }catch(SQLException e){
             System.out.println(" Kode program salah");
@@ -78,32 +81,32 @@ public class DashboardController implements Initializable {
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                jadwalSenin.add(kelas);
+                this.jadwalSenin.add(kelas);
             }
             
         }else if(hari == "SELASA"){
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                jadwalSelasa.add(kelas);
+                this.jadwalSelasa.add(kelas);
             }
         }else if(hari == "RABU"){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                jadwalRabu.add(kelas);
+                this.jadwalRabu.add(kelas);
             }
         }else if(hari == "KAMIS"){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                jadwalKamis.add(kelas);
+                this.jadwalKamis.add(kelas);
             }
         }else{
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                jadwalJumat.add(kelas);
+                this.jadwalJumat.add(kelas);
             }
         }
     }
