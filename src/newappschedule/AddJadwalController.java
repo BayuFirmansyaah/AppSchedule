@@ -27,6 +27,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.JOptionPane;
 
 /**
@@ -116,6 +117,10 @@ public class AddJadwalController implements Initializable {
                 getDataJadwalObservableList.add(new getDataJadwal(queryKelas,queryHari,queryJam,queryKode));
             }
             
+            columnHari.setCellValueFactory(new PropertyValueFactory<>("hari"));
+            columnKelas.setCellValueFactory(new PropertyValueFactory<>("kelas"));
+            columnJam.setCellValueFactory(new PropertyValueFactory<>("jam"));
+            columnKode.setCellValueFactory(new PropertyValueFactory<>("kode"));
             
             tableViewJadwal.setItems(getDataJadwalObservableList);
                                            
