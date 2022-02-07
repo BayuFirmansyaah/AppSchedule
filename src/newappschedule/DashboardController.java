@@ -68,11 +68,14 @@ public class DashboardController implements Initializable {
                     this.filterData(r_hari, r_kelas, r_jam, r_kode);             
                 }
                 
-                System.out.println(this.jadwalSelasa);
+               
 //            
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
+        
+        
+         System.out.println(this.jadwalSelasa);
     }
     
     
@@ -84,30 +87,40 @@ public class DashboardController implements Initializable {
                 this.jadwalSenin.add(kelas);
             }
             
+            System.out.println(this.jadwalSenin);
+            
         }else if(hari == "SELASA"){
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                 this.jadwalSelasa.add(kelas);
             }
+            
+            System.out.println(this.jadwalSelasa);
         }else if(hari == "RABU"){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                 this.jadwalRabu.add(kelas);
             }
+            
+            System.out.println(this.jadwalRabu);
         }else if(hari == "KAMIS"){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                 this.jadwalKamis.add(kelas);
             }
+            
+            System.out.println(this.jadwalKamis);
         }else{
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                 this.jadwalJumat.add(kelas);
             }
+            
+            System.out.println(this.jadwalJumat);
         }
     }
 
