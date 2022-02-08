@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -80,15 +81,22 @@ public class DashboardController implements Initializable {
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal WHERE kode='rpl1'");
 
-                while(rst.next()){
-                    r_hari = rst.getString("hari");
-                    r_kelas = rst.getString("kelas");
-                    r_jam = rst.getString("jam");
-                    r_kode = rst.getString("kode");
+            while(rst.next()){
+                r_hari = rst.getString("hari");
+                r_kelas = rst.getString("kelas");
+                r_jam = rst.getString("jam");
+                r_kode = rst.getString("kode");
        
-                    this.filterData(r_hari, r_kelas, r_jam, r_kode);             
-                }
+                this.filterData(r_hari, r_kelas, r_jam, r_kode);             
+            }
                 
+            columnSenin.setCellValueFactory(new PropertyValueFactory<>("senin"));
+            columnSelasa.setCellValueFactory(new PropertyValueFactory<>("selasa"));
+            columnRabu.setCellValueFactory(new PropertyValueFactory<>("rabu"));
+            columnKamis.setCellValueFactory(new PropertyValueFactory<>("kamis"));
+            columnJumat.setCellValueFactory(new PropertyValueFactory<>("jumat"));
+            
+            showDataJadwal.setItems(shortDataShowObservableList);
                
 //            
         }catch(SQLException e){
