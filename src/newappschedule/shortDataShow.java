@@ -16,27 +16,27 @@ public class shortDataShow {
         
         if(querySenin != "null"){
             this.senin = querySenin;
-            System.out.println("berhasil di tambahkan");
+            System.out.println("kelas senin berhasil di tambahkan");
         }
         
         if(querySelasa != "null"){
             this.selasa = querySelasa;
-            System.out.println("berhasil di tambahkan");
+            System.out.println("kelas selasa berhasil di tambahkan");
         }
         
         if(queryRabu != "null"){
             this.rabu = queryRabu;
-            System.out.println("berhasil di tambahkan");
+            System.out.println("kelas rabu berhasil di tambahkan");
         }
         
         if(queryKamis != "null"){
             this.kamis = queryKamis;
-            System.out.println("berhasil di tambahkan");
+            System.out.println("kelas kamis berhasil di tambahkan");
         }
         
         if(queryJumat != "null"){
             this.jumat = queryJumat;
-            System.out.println("berhasil di tambahkan");
+            System.out.println("kelas jumat berhasil di tambahkan");
         }
     }
     
