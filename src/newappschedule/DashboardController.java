@@ -11,12 +11,16 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 /**
@@ -29,12 +33,29 @@ public class DashboardController implements Initializable {
     @FXML
     Button login;
     
-    ArrayList<String> jadwalSenin = new ArrayList<String>();
-    ArrayList<String> jadwalSelasa = new ArrayList<String>();
-    ArrayList<String> jadwalRabu = new ArrayList<String>();
-    ArrayList<String> jadwalKamis = new ArrayList<String>();
-    ArrayList<String> jadwalJumat = new ArrayList<String>();
-    ArrayList<String> jadwalLab = new ArrayList<String>();
+    @FXML
+    private TableView<shortDataShow> showDataJadwal;
+    
+     @FXML
+    private TableColumn<getDataJadwal, String> columnJumat;
+
+    @FXML
+    private TableColumn<getDataJadwal, String> columnKamis;
+
+    @FXML
+    private TableColumn<getDataJadwal, String> columnRabu;
+
+    @FXML
+    private TableColumn<getDataJadwal, String> columnSelasa;
+
+    @FXML
+    private TableColumn<getDataJadwal, String> columnSenin;
+    
+    
+    ObservableList<shortDataShow> shortDataShowObservableList = FXCollections.observableArrayList();
+    
+//    ======================================================================================================================
+    
     
     
     @Override
@@ -47,15 +68,10 @@ public class DashboardController implements Initializable {
 //         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
 //         Stage window = (Stage) login.getScene().getWindow();
 //         window.setScene(new Scene(root,789,500));
-            this.consoleLog();
     }
     
     
-    public void consoleLog(){
-        System.out.print(this.jadwalSelasa);
-    }
-    
-    
+     
     public void getData(){
         try{
             String r_hari,r_kelas,r_jam,r_kode;
@@ -86,35 +102,35 @@ public class DashboardController implements Initializable {
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                this.jadwalSenin.add(kelas);
+                 shortDataShowObservableList.add(new shortDataShow(kelas,"null","null","null","null"));
             }
                       
         }else if(hari == "SELASA"){
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                this.jadwalSelasa.add(kelas);
+               shortDataShowObservableList.add(new shortDataShow("null",kelas,"null","null","null"));
             }
             
         }else if(hari == "RABU"){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                this.jadwalRabu.add(kelas);
+                shortDataShowObservableList.add(new shortDataShow("null","null",kelas,"null","null"));
             }
             
         }else if(hari == "KAMIS"){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                this.jadwalKamis.add(kelas);
+                 shortDataShowObservableList.add(new shortDataShow("null","null","null",kelas,"null"));
             }
             
         }else{
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                this.jadwalJumat.add(kelas);
+                shortDataShowObservableList.add(new shortDataShow("null","null","null","null",kelas));
             }
 
         }
