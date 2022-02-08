@@ -38,19 +38,19 @@ public class DashboardController implements Initializable {
     private TableView<shortDataShow> showDataJadwal;
     
      @FXML
-    private TableColumn<getDataJadwal, String> columnJumat;
+    private TableColumn<shortDataShow, String> columnJumat;
 
     @FXML
-    private TableColumn<getDataJadwal, String> columnKamis;
+    private TableColumn<shortDataShow, String> columnKamis;
 
     @FXML
-    private TableColumn<getDataJadwal, String> columnRabu;
+    private TableColumn<shortDataShow, String> columnRabu;
 
     @FXML
-    private TableColumn<getDataJadwal, String> columnSelasa;
+    private TableColumn<shortDataShow, String> columnSelasa;
 
     @FXML
-    private TableColumn<getDataJadwal, String> columnSenin;
+    private TableColumn<shortDataShow, String> columnSenin;
     
     
     ObservableList<shortDataShow> shortDataShowObservableList = FXCollections.observableArrayList();
@@ -74,7 +74,7 @@ public class DashboardController implements Initializable {
                 r_jam = rst.getString("jam");
                 r_kode = rst.getString("kode");
        
-                System.out.println(r_hari);
+                
                 this.filterData(r_hari, r_kelas, r_jam, r_kode);             
             }
                 
@@ -107,7 +107,6 @@ public class DashboardController implements Initializable {
         if(hari == "SENIN"){
             int totalJam = this.convertJam(jam);
             
-            System.out.println(kelas);
             
             for(int i=1;i<=totalJam;i++){
                  shortDataShowObservableList.add(new shortDataShow(kelas,"null","null","null","null"));
