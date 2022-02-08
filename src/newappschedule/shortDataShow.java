@@ -11,32 +11,43 @@ package newappschedule;
  */
 public class shortDataShow {
     String senin,selasa,rabu,kamis,jumat;
+    int countable;
     
     shortDataShow(String querySenin,String querySelasa,String queryRabu,String queryKamis,String queryJumat){
         
-        if(querySenin != "null"){
+        if(querySenin == "null"){
+            this.countable +=1;
+        }else{
             this.senin = querySenin;
             System.out.println("kelas senin berhasil di tambahkan");
         }
         
-        if(querySelasa != "null"){
+        if(querySelasa == "null"){
+            this.countable +=1;
+        }else{
             this.selasa = querySelasa;
             System.out.println("kelas selasa berhasil di tambahkan");
         }
         
-        if(queryRabu != "null"){
+        if(queryRabu == "null"){
+            this.countable +=1;
+        }else{
             this.rabu = queryRabu;
             System.out.println("kelas rabu berhasil di tambahkan");
         }
         
-        if(queryKamis != "null"){
+        if(queryKamis == "null"){
+            this.countable +=1;
+        }else{
             this.kamis = queryKamis;
             System.out.println("kelas kamis berhasil di tambahkan");
         }
         
-        if(queryJumat != "null"){
+        if(queryJumat == "null"){
+            this.countable +=1;
+        }else{
             this.jumat = queryJumat;
-            System.out.println("kelas jumat berhasil di tambahkan");
+            System.out.println("kelas jumat berhasil di tambahkan"); 
         }
     }
     
