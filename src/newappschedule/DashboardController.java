@@ -61,19 +61,6 @@ public class DashboardController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.getData();
-    } 
-    
-       
-    public void handdleButonLogin () throws Exception{
-//         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-//         Stage window = (Stage) login.getScene().getWindow();
-//         window.setScene(new Scene(root,789,500));
-    }
-    
-    
-     
-    public void getData(){
         try{
             String r_hari,r_kelas,r_jam,r_kode;
             
@@ -87,6 +74,7 @@ public class DashboardController implements Initializable {
                 r_jam = rst.getString("jam");
                 r_kode = rst.getString("kode");
        
+                System.out.println(r_hari);
                 this.filterData(r_hari, r_kelas, r_jam, r_kode);             
             }
                 
@@ -102,12 +90,24 @@ public class DashboardController implements Initializable {
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
+    } 
+    
+       
+    public void handdleButonLogin () throws Exception{
+//         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+//         Stage window = (Stage) login.getScene().getWindow();
+//         window.setScene(new Scene(root,789,500));
     }
+    
+    
+     
     
     
     public void filterData(String hari,String kelas,String jam,String kode){
         if(hari == "SENIN"){
             int totalJam = this.convertJam(jam);
+            
+            System.out.println(kelas);
             
             for(int i=1;i<=totalJam;i++){
                  shortDataShowObservableList.add(new shortDataShow(kelas,"null","null","null","null"));
