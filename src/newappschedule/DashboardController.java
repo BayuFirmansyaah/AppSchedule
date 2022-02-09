@@ -88,6 +88,8 @@ public class DashboardController implements Initializable {
             String jSenin,jSelasa,jRabu,jKamis,jJumat;
                 
             int lengthData = this.dataSenin.size();
+            System.out.println(lengthData);
+            
             for(int i=0;i<lengthData;i++){
                 jSenin = this.dataSenin.get(i);
                 jSelasa = this.dataSelasa.get(i);
@@ -95,6 +97,7 @@ public class DashboardController implements Initializable {
                 jKamis = this.dataKamis.get(i);
                 jJumat = this.dataJumat.get(i);
                 shortDataShowObservableList.add(new shortDataShow(jSenin,jSelasa,jRabu,jKamis,jJumat));
+                System.out.println(jSelasa);
             }
             
             columnSenin.setCellValueFactory(new PropertyValueFactory<>("senin"));
@@ -123,7 +126,6 @@ public class DashboardController implements Initializable {
     
     
     public void filterData(String hari,String kelas,String jam,String kode){
-        System.out.println(hari + " | "+kelas);
         
         if(hari.equals("SENIN")){
             int totalJam = this.convertJam(jam);
