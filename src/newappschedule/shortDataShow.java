@@ -14,41 +14,11 @@ public class shortDataShow {
     int countable;
     
     shortDataShow(String querySenin,String querySelasa,String queryRabu,String queryKamis,String queryJumat){
-        
-        if(querySenin == "null"){
-            this.countable +=1;
-        }else{
-            this.senin = querySenin;
-            System.out.println("kelas :"+ querySenin +" di senin berhasil di tambahkan");
-        }
-        
-        if(querySelasa == "null"){
-            this.countable +=1;
-        }else{
-            this.selasa = querySelasa;
-            System.out.println("kelas :"+ querySelasa+" di selasa berhasil di tambahkan");
-        }
-        
-        if(queryRabu == "null"){
-            this.countable +=1;
-        }else{
-            this.rabu = queryRabu;
-            System.out.println("kelas :"+ queryRabu+" di hari rabu berhasil di tambahkan");
-        }
-        
-        if(queryKamis == "null"){
-            this.countable +=1;
-        }else{
-            this.kamis = queryKamis;
-            System.out.println("kelas :"+ queryKamis+" di hari kamis berhasil di tambahkan");
-        }
-        
-        if(queryJumat == "null"){
-            this.countable +=1;
-        }else{
-            this.jumat = queryJumat;
-            System.out.println("kelas :"+ queryJumat+" di hari jumat berhasil di tambahkan"); 
-        }
+        this.senin = querySenin;
+        this.selasa = querySelasa;
+        this.rabu = queryRabu;
+        this.kamis = queryKamis;
+        this.jumat = queryJumat;
     }
     
     

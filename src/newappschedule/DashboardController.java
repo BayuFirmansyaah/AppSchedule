@@ -84,8 +84,19 @@ public class DashboardController implements Initializable {
                 
                 this.filterData(r_hari, r_kelas, r_jam, r_kode);             
             }
+            
+            String jSenin,jSelasa,jRabu,jKamis,jJumat;
                 
-            System.out.println(this.dataSenin);
+            int lengthData = this.dataSenin.size();
+            for(int i=0;i<lengthData;i++){
+                jSenin = this.dataSenin.get(i);
+                jSelasa = this.dataSelasa.get(i);
+                jRabu = this.dataRabu.get(i);
+                jKamis = this.dataKamis.get(i);
+                jJumat = this.dataJumat.get(i);
+                shortDataShowObservableList.add(new shortDataShow(jSenin,jSelasa,jRabu,jKamis,jJumat));
+            }
+            
             columnSenin.setCellValueFactory(new PropertyValueFactory<>("senin"));
             columnSelasa.setCellValueFactory(new PropertyValueFactory<>("selasa"));
             columnRabu.setCellValueFactory(new PropertyValueFactory<>("rabu"));
