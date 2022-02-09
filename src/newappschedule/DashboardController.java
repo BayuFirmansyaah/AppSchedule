@@ -106,35 +106,35 @@ public class DashboardController implements Initializable {
     public void filterData(String hari,String kelas,String jam,String kode){
         System.out.println(hari + " | "+kelas);
         
-        if(hari == "SENIN"){
+        if(hari.equals("SENIN")){
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                  shortDataShowObservableList.add(new shortDataShow(kelas,"null","null","null","null"));
             }
                       
-        }else if(hari == "SELASA"){
+        }else if(hari.equals("SELASA")){
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                shortDataShowObservableList.add(new shortDataShow("null",kelas,"null","null","null"));
             }
             
-        }else if(hari == "RABU"){
+        }else if(hari.equals("RABU")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                 shortDataShowObservableList.add(new shortDataShow("null","null",kelas,"null","null"));
             }
             
-        }else if(hari == "KAMIS"){
+        }else if(hari.equals("KAMIS")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
                  shortDataShowObservableList.add(new shortDataShow("null","null","null",kelas,"null"));
             }
             
-        }else{
+        }else if(hari.equals("JUMAT")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
