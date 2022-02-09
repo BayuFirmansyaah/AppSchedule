@@ -58,31 +58,14 @@ public class DashboardController implements Initializable {
 //    ======================================================================================================================
 //    Deklarasi Array
     int n=10;
-    String dataSenin[] = {};
-    String dataSelasa[] = {};
-    String dataRabu[] = {};
-    String dataKamis[] = {};
-    String dataJumat[] = {};
+    ArrayList<String> dataSenin = new ArrayList<String>();
+    ArrayList<String> dataSelasa = new ArrayList<String>();
+    ArrayList<String> dataRabu = new ArrayList<String>();
+    ArrayList<String> dataKamis = new ArrayList<String>();
+    ArrayList<String> dataJumat = new ArrayList<String>();
     
-   public static String[] pushData(int n, String arr[], String x){
-        int i;
-  
-        // create a new array of size n+1
-        String newarr[] = new String[n + 1];
-  
-        // insert the elements from
-        // the old array into the new array
-        // insert all elements till n
-        // then insert x at n+1
-        for (i = 0; i < n; i++)
-            newarr[i] = arr[i];
-  
-        newarr[n] = x;
-  
-        return newarr;
-    }
-    
-    
+ 
+      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try{
@@ -135,35 +118,35 @@ public class DashboardController implements Initializable {
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                 this.dataSenin = pushData(this.n,this.dataSenin,kelas);
+                 this.dataSenin.add(kelas);
             }
                       
         }else if(hari.equals("SELASA")){
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-               this.dataSelasa = pushData(this.n,this.dataSelasa,kelas);
+               this.dataSelasa .add(kelas);
             }
             
         }else if(hari.equals("RABU")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-               this.dataRabu = pushData(this.n,this.dataRabu,kelas);
+               this.dataRabu.add(kelas);
             }
             
         }else if(hari.equals("KAMIS")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                this.dataKamis = pushData(this.n,this.dataKamis,kelas);
+                this.dataKamis.add(kelas);
             }
             
         }else if(hari.equals("JUMAT")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                this.dataJumat = pushData(this.n,this.dataJumat,kelas);
+                this.dataJumat.add(kelas);
             }
 
         }
