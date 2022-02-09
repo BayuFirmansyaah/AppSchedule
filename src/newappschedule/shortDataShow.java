@@ -19,14 +19,14 @@ public class shortDataShow {
             this.countable +=1;
         }else{
             this.senin = querySenin;
-            System.out.println("kelas :"+ querySenin +"senin berhasil di tambahkan");
+            System.out.println("kelas :"+ querySenin +" di senin berhasil di tambahkan");
         }
         
         if(querySelasa == "null"){
             this.countable +=1;
         }else{
             this.selasa = querySelasa;
-            System.out.println("kelas :"+ querySelasa+"selasa berhasil di tambahkan");
+            System.out.println("kelas :"+ querySelasa+" di selasa berhasil di tambahkan");
         }
         
         if(queryRabu == "null"){

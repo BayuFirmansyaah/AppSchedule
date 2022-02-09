@@ -56,7 +56,31 @@ public class DashboardController implements Initializable {
     ObservableList<shortDataShow> shortDataShowObservableList = FXCollections.observableArrayList();
     
 //    ======================================================================================================================
+//    Deklarasi Array
+    int n=10;
+    String dataSenin[] = {};
+    String dataSelasa[] = {};
+    String dataRabu[] = {};
+    String dataKamis[] = {};
+    String dataJumat[] = {};
     
+   public static String[] pushData(int n, String arr[], String x){
+        int i;
+  
+        // create a new array of size n+1
+        String newarr[] = new String[n + 1];
+  
+        // insert the elements from
+        // the old array into the new array
+        // insert all elements till n
+        // then insert x at n+1
+        for (i = 0; i < n; i++)
+            newarr[i] = arr[i];
+  
+        newarr[n] = x;
+  
+        return newarr;
+    }
     
     
     @Override
@@ -78,6 +102,7 @@ public class DashboardController implements Initializable {
                 this.filterData(r_hari, r_kelas, r_jam, r_kode);             
             }
                 
+            System.out.println(this.dataSenin);
             columnSenin.setCellValueFactory(new PropertyValueFactory<>("senin"));
             columnSelasa.setCellValueFactory(new PropertyValueFactory<>("selasa"));
             columnRabu.setCellValueFactory(new PropertyValueFactory<>("rabu"));
@@ -110,35 +135,35 @@ public class DashboardController implements Initializable {
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                 shortDataShowObservableList.add(new shortDataShow(kelas,"null","null","null","null"));
+                 this.dataSenin = pushData(this.n,this.dataSenin,kelas);
             }
                       
         }else if(hari.equals("SELASA")){
             int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-               shortDataShowObservableList.add(new shortDataShow("null",kelas,"null","null","null"));
+               this.dataSelasa = pushData(this.n,this.dataSelasa,kelas);
             }
             
         }else if(hari.equals("RABU")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                shortDataShowObservableList.add(new shortDataShow("null","null",kelas,"null","null"));
+               this.dataRabu = pushData(this.n,this.dataRabu,kelas);
             }
             
         }else if(hari.equals("KAMIS")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                 shortDataShowObservableList.add(new shortDataShow("null","null","null",kelas,"null"));
+                this.dataKamis = pushData(this.n,this.dataKamis,kelas);
             }
             
         }else if(hari.equals("JUMAT")){
            int totalJam = this.convertJam(jam);
             
             for(int i=1;i<=totalJam;i++){
-                shortDataShowObservableList.add(new shortDataShow("null","null","null","null",kelas));
+                this.dataJumat = pushData(this.n,this.dataJumat,kelas);
             }
 
         }

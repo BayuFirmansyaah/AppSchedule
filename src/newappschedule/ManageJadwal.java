@@ -29,8 +29,8 @@ public class ManageJadwal extends Application {
         stage.setTitle("Manage Jadwal (Not Responding)");
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setMaximized(true);
-        stage.setFullScreen(true);
+//        stage.setMaximized(true);
+//        stage.setFullScreen(true);
         stage.centerOnScreen();
         stage.show();
     }
