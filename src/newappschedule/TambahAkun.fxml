@@ -24,7 +24,7 @@
                             <TableColumn fx:id="columnNumber" prefWidth="75.0" text="No" />
                           </columns>
                            <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                              <TableView />
                            </columnResizePolicy>
                         </TableView>
                      </children>
