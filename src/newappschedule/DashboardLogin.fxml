@@ -17,12 +17,14 @@
                <children>
                   <AnchorPane layoutX="33.0" layoutY="7.0" prefHeight="397.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView layoutX="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="showDataJadwal" layoutX="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Kode Lab" />
-                            <TableColumn prefWidth="75.0" text="Jam" />
-                              <TableColumn prefWidth="75.0" text="Hari" />
-                              <TableColumn prefWidth="75.0" text="Kelas" />
+                            <TableColumn fx:id="columnJumat" prefWidth="75.0" text="Jumat" />
+                            <TableColumn fx:id="columnKamis" prefWidth="75.0" text="Kamis" />
+                              <TableColumn fx:id="columnRabu" prefWidth="75.0" text="Rabu" />
+                              <TableColumn fx:id="columnSelasa" prefWidth="75.0" text="Selasa" />
+                              <TableColumn fx:id="columnSenin" prefWidth="75.0" text="Senin" />
+                              <TableColumn fx:id="columnJam" prefWidth="75.0" text="Jam" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

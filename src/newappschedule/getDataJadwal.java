@@ -12,12 +12,18 @@ package newappschedule;
 public class getDataJadwal {
     
     String hari,kelas,jam,kode;
+    int number;
 
-    getDataJadwal(String queryKelas, String queryHari, String queryJam, String queryKode) {
-          this.hari = queryHari;
-          this.kelas = queryKelas;
-          this.jam = queryJam;
-          this.kode = queryKode;
+    getDataJadwal(int queryNumber,String queryKelas, String queryHari, String queryJam, String queryKode) {
+        this.number = queryNumber;
+        this.hari = queryHari;
+        this.kelas = queryKelas;
+        this.jam = queryJam;
+        this.kode = queryKode;
+    }
+    
+    public int getNumber(){
+        return number;
     }
     
     public String getHari(){
@@ -36,6 +42,11 @@ public class getDataJadwal {
         return kode;
     }
     
+    
+    
+    public void setNumber(int _number){
+        this.number = _number;
+    }
     
     public void setHari(String _hari){
         this.hari = _hari;

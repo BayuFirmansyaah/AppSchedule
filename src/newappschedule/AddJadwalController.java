@@ -84,6 +84,9 @@ public class AddJadwalController implements Initializable {
 
       @FXML
     private TableColumn<getDataJadwal, String> columnHari;
+      
+       @FXML
+    private TableColumn<getDataJadwal, String> columnNumber;
 
     @FXML
     private TableColumn<getDataJadwal, String> columnJam;
@@ -107,6 +110,7 @@ public class AddJadwalController implements Initializable {
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal");
+            int number = 1;
             
             while(rst.next()){
                 String queryKelas = rst.getString("kelas");
@@ -114,10 +118,13 @@ public class AddJadwalController implements Initializable {
                 String queryJam = rst.getString("jam");
                 String queryKode = rst.getString("kode");
                 
-                getDataJadwalObservableList.add(new getDataJadwal(queryKelas,queryHari,queryJam,queryKode));
+                getDataJadwalObservableList.add(new getDataJadwal(number,queryKelas,queryHari,queryJam,queryKode));
+                
+                number+=1;
             }
             
             columnHari.setCellValueFactory(new PropertyValueFactory<>("hari"));
+            columnNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
             columnKelas.setCellValueFactory(new PropertyValueFactory<>("kelas"));
             columnJam.setCellValueFactory(new PropertyValueFactory<>("jam"));
             columnKode.setCellValueFactory(new PropertyValueFactory<>("kode"));
