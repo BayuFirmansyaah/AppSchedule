@@ -11,9 +11,10 @@ package newappschedule;
  */
 public class shortDataShow {
     String senin,selasa,rabu,kamis,jumat;
-    int countable;
+    int number;
     
-     shortDataShow(String querySenin, String querySelasa, String queryRabu, String queryKamis, String queryJumat) {
+     shortDataShow(int jam,String querySenin, String querySelasa, String queryRabu, String queryKamis, String queryJumat) {
+          this.number = jam;
           this.senin = querySenin;
           this.selasa = querySelasa;
           this.rabu = queryRabu;
@@ -21,6 +22,10 @@ public class shortDataShow {
           this.jumat = queryJumat;
     }
     
+    
+    public int getNumber(){
+        return number;
+    }
     
     public String getSenin(){
         return senin;
@@ -45,6 +50,10 @@ public class shortDataShow {
         return jumat;
     }
     
+    
+    public void setNumber(int _number){
+        this.number = _number;
+    }
     
     public void setSenin(String _senin){
         this.senin = _senin;

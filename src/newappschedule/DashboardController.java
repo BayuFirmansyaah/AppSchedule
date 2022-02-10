@@ -6,6 +6,7 @@
 package newappschedule;
 
 import database.KoneksiDatabase;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -51,6 +53,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private TableColumn<shortDataShow, String> columnSenin;
+    
+      @FXML
+    private TableColumn<shortDataShow, String> columnJam;
     
     
     ObservableList<shortDataShow> shortDataShowObservableList = FXCollections.observableArrayList();
@@ -88,6 +93,7 @@ public class DashboardController implements Initializable {
             String jSenin,jSelasa,jRabu,jKamis,jJumat;
                 
             int lengthData = this.dataSenin.size();
+            int jam = 1;
             
             for(int i=0;i<lengthData;i++){
                 jSenin = this.dataSenin.get(i);
@@ -96,11 +102,13 @@ public class DashboardController implements Initializable {
                 jKamis = this.dataKamis.get(i);
                 jJumat = this.dataJumat.get(i);
                 
-                shortDataShowObservableList.add(new shortDataShow(jSenin,jSelasa,jRabu,jKamis,jJumat));
-                System.out.println(jSenin +" | "+jSelasa+" | "+jRabu+" | "+jKamis+" | "+jJumat);
+                shortDataShowObservableList.add(new shortDataShow(jam,jSenin,jSelasa,jRabu,jKamis,jJumat));
+                
+                jam+=1;
                
             }
             
+            columnJam.setCellValueFactory(new PropertyValueFactory<>("number"));
             columnSenin.setCellValueFactory(new PropertyValueFactory<>("senin"));
             columnSelasa.setCellValueFactory(new PropertyValueFactory<>("selasa"));
             columnRabu.setCellValueFactory(new PropertyValueFactory<>("rabu"));
@@ -117,9 +125,9 @@ public class DashboardController implements Initializable {
     
        
     public void handdleButonLogin () throws Exception{
-//         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-//         Stage window = (Stage) login.getScene().getWindow();
-//         window.setScene(new Scene(root,789,500));
+         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+         Stage window = (Stage) login.getScene().getWindow();
+         window.setScene(new Scene(root,789,500));
     }
     
     
