@@ -13,35 +13,35 @@ public class shortDataShow {
     String senin,selasa,rabu,kamis,jumat;
     int countable;
     
-    shortDataShow(String querySenin,String querySelasa,String queryRabu,String queryKamis,String queryJumat){
-        this.senin = querySenin;
-        this.selasa = querySelasa;
-        this.rabu = queryRabu;
-        this.kamis = queryKamis;
-        this.jumat = queryJumat;
+     shortDataShow(String querySenin, String querySelasa, String queryRabu, String queryKamis, String queryJumat) {
+          this.senin = querySenin;
+          this.selasa = querySelasa;
+          this.rabu = queryRabu;
+          this.kamis = queryKamis;
+          this.jumat = queryJumat;
     }
     
     
-    public String Senin(){
+    public String getSenin(){
         return senin;
     }
     
-     public String Selasa(){
+     public String getSelasa(){
         return selasa;
     }
      
      
-    public String Rabu(){
+    public String getRabu(){
         return rabu;
     }
     
     
-    public String Kamis(){
+    public String getKamis(){
         return kamis;
     }
     
     
-    public String Jumat(){
+    public String getJumat(){
         return jumat;
     }
     
