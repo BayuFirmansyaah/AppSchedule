@@ -23,6 +23,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import database.KoneksiDatabase;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * FXML Controller class
  *
@@ -33,11 +37,7 @@ public class TambahAkunController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }   
-    
+   
      @FXML 
     private Button informasiJadwal;
      
@@ -71,7 +71,52 @@ public class TambahAkunController implements Initializable {
     @FXML
     private TextField username;
     
- 
+//    ======================================================================================================================
+     @FXML
+    private TableView<getDataAkun> showDataAkun;
+     
+    @FXML
+    private TableColumn<getDataAkun, String> columnNumber;
+
+    @FXML
+    private TableColumn<getDataAkun, String> columnPassword;
+
+    @FXML
+    private TableColumn<getDataAkun, String> columnUsername;
+    
+     ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
+     
+//     =====================================================================================================================
+     
+      @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try{       
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
+            int number = 1;
+            
+            while(rst.next()){
+                
+                String queryUsername = rst.getString("username");
+                String queryPassword = rst.getString("password");
+                
+                getDataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
+                number +=1;
+            }
+            
+            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+            columnNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
+            columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+            showDataAkun.setItems(getDataAkunObservableList);
+                                           
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }
+    }   
+     
+    
+// =========================================================================================================================
 //     add account backend fitur
     @FXML
     void insertData(ActionEvent event) {
