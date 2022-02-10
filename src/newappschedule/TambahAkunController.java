@@ -90,29 +90,29 @@ public class TambahAkunController implements Initializable {
      
       @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try{       
-            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
-            java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
-            int number = 1;
-            
-            while(rst.next()){
-                
-                String queryUsername = rst.getString("username");
-                String queryPassword = rst.getString("password");
-                
-                getDataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
-                number +=1;
-            }
-            
-            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-            columnNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
-            columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
-            showDataAkun.setItems(getDataAkunObservableList);
-                                           
-        }catch(SQLException e){
-            System.out.println(" Kode program salah");
-        }
+//        try{       
+//            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+//            java.sql.Statement stm = conn.createStatement();
+//            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
+//            int number = 1;
+//            
+//            while(rst.next()){
+//                
+//                String queryUsername = rst.getString("username");
+//                String queryPassword = rst.getString("password");
+//                
+//                getDataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
+//                number +=1;
+//            }
+//            
+////            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+////            columnNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
+////            columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+////            showDataAkun.setItems(getDataAkunObservableList);
+//                                           
+//        }catch(SQLException e){
+//            System.out.println(" Kode program salah");
+//        }
     }   
      
     
