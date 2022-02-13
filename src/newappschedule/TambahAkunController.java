@@ -72,15 +72,17 @@ public class TambahAkunController implements Initializable {
     private TextField username;
     
 //    ======================================================================================================================
-//     @FXML
-//    private TableView<getDataAkun> showDataAkun;
-//    
-//    @FXML
-//    private TableColumn<getDataAkun, String> columnPassword;
-//
-//    @FXML
-//    private TableColumn<getDataAkun, String> columnUsername;
-//    
+    
+      @FXML
+    private TableColumn<getDataAkun, String> columnPassword;
+
+    @FXML
+    private TableColumn<getDataAkun, String> columnUsername;
+    
+    
+    @FXML
+    private TableView<getDataAkun> showDataAkun;
+    
     ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
      
 //     =====================================================================================================================
