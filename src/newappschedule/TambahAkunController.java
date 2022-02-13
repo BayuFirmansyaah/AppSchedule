@@ -106,10 +106,11 @@ public class TambahAkunController implements Initializable {
                 number +=1;
             }
             
-//            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-//            columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
-//            
-//            showDataAkun.setItems(getDataAkunObservableList);
+            tabelNo.setCellValueFactory(new PropertyValueFactory<>("number"));
+            tabelUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+            tabelPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+            
+            tabelDataAkun.setItems(getDataAkunObservableList);
                                            
         }catch(SQLException e){
             System.out.println(" Kode program salah");

@@ -10,42 +10,40 @@ package newappschedule;
  * @author bayu firmansyah
  */
 public class getDataAkun {
-    String username,password;
-     int number;
-    
-    getDataAkun(int no,String queryUsername,String queryPassword){
-        this.number = no;
-        this.username = queryUsername;
-        this.password = queryPassword;
-        System.out.println(queryUsername +" | "+queryPassword);
-    }
-    
-    public int getNumber(){
-        return number;
-    }
-    
-    public String getUsername(){
-        return username;
-    }
-    
-    public String getPassword(){
-        return password;
-    }
-    
-    
-    
-   public void setNumber(int no){
-       this.number = no;
+   String username,password;
+   int number;
+   
+   getDataAkun(int queryNumber, String queryUsername, String queryPassword){
+       this.username = queryUsername;
+       this.password = queryPassword;
+       this.number = queryNumber;
    }
    
-   public void setUsername(String _username){
-       this.username = _username;
+   public int getNumber(){
+       return this.number;
+   }
+   
+   public String getUsername(){
+       return this.username;
+   }
+   
+   public String getPassword(){
+       return this.password;
    }
    
    
-   public void setPassword(String _password){
-       this.password = _password;
+   public void setNumber(int queryNumber){
+       this.number = queryNumber;
    }
+   
+   public void setUsername(String queryUsername){
+       this.username = queryUsername;
+   }
+   
+   public void setPassword(String queryPassword){
+       this.password = queryPassword;
+   }
+   
    
    
     
