@@ -21,10 +21,9 @@
                           <columns>
                             <TableColumn fx:id="columnPassword" prefWidth="75.0" text="Password" />
                               <TableColumn fx:id="columnUsername" prefWidth="75.0" text="Username" />
-                            <TableColumn fx:id="columnNumber" prefWidth="75.0" text="No" />
                           </columns>
                            <columnResizePolicy>
-                              <TableView />
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
                      </children>

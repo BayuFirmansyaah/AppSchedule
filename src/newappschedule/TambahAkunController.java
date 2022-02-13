@@ -74,45 +74,43 @@ public class TambahAkunController implements Initializable {
 //    ======================================================================================================================
      @FXML
     private TableView<getDataAkun> showDataAkun;
-     
-    @FXML
-    private TableColumn<getDataAkun, String> columnNumber;
-
+    
     @FXML
     private TableColumn<getDataAkun, String> columnPassword;
 
     @FXML
     private TableColumn<getDataAkun, String> columnUsername;
     
-     ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
+    ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
      
 //     =====================================================================================================================
      
       @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        try{       
-//            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
-//            java.sql.Statement stm = conn.createStatement();
-//            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
-//            int number = 1;
-//            
-//            while(rst.next()){
-//                
-//                String queryUsername = rst.getString("username");
-//                String queryPassword = rst.getString("password");
-//                
-//                getDataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
-//                number +=1;
-//            }
-//            
-////            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-////            columnNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
-////            columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
-////            showDataAkun.setItems(getDataAkunObservableList);
-//                                           
-//        }catch(SQLException e){
-//            System.out.println(" Kode program salah");
-//        }
+         try{
+            String r_hari,r_kelas,r_jam,r_kode;
+            
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
+            int number = 1;
+            
+            while(rst.next()){
+                String queryUsername = rst.getString("username");
+                String queryPassword = rst.getString("password");
+                
+                getDataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
+                number +=1;
+            }
+            
+            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+            columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+            
+            showDataAkun.setItems(getDataAkunObservableList);
+                                           
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }
     }   
      
     
