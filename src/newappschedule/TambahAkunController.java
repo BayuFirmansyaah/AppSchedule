@@ -73,15 +73,17 @@ public class TambahAkunController implements Initializable {
     
 //    ======================================================================================================================
     
-     @FXML
-    private TableView<getDataAkun> showDataAkun;
-     
-    @FXML
-    private TableColumn<getDataAkun, String> columnPassword;
+ @FXML
+    private TableView<getDataAkun> tabelDataAkun;
 
     @FXML
-    private TableColumn<getDataAkun, String> columnUsername;
-    
+    private TableColumn<getDataAkun, String> tabelNo;
+
+    @FXML
+    private TableColumn<getDataAkun, String> tabelPassword;
+
+    @FXML
+    private TableColumn<getDataAkun, String> tabelUsername;
     
     ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
      
