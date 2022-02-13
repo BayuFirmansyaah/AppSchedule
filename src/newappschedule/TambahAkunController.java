@@ -73,15 +73,15 @@ public class TambahAkunController implements Initializable {
     
 //    ======================================================================================================================
     
-      @FXML
+     @FXML
+    private TableView<getDataAkun> showDataAkun;
+     
+    @FXML
     private TableColumn<getDataAkun, String> columnPassword;
 
     @FXML
     private TableColumn<getDataAkun, String> columnUsername;
     
-    
-    @FXML
-    private TableView<getDataAkun> showDataAkun;
     
     ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
      
@@ -100,14 +100,14 @@ public class TambahAkunController implements Initializable {
                 String queryUsername = rst.getString("username");
                 String queryPassword = rst.getString("password");
                 
-               getDataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
+               getDataAkunObservableList.add(new getDataAkun(number,"username","password"));
                 number +=1;
             }
             
-//            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-//            columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
-//            
-//            showDataAkun.setItems(getDataAkunObservableList);
+            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+            columnPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+            
+            showDataAkun.setItems(getDataAkunObservableList);
                                            
         }catch(SQLException e){
             System.out.println(" Kode program salah");
