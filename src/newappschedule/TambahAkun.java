@@ -23,7 +23,7 @@ public class TambahAkun extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/TambahAkun.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TambahAkun.fxml"));
         
         Scene scene = new Scene(root, 800, 500);
         stage.setTitle("Tambah Akun (Not Responding)");

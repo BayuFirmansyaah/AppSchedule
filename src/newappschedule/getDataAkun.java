@@ -13,10 +13,11 @@ public class getDataAkun {
     int number;
     String username,password;
     
-    getDataAkun(int no,String _username,String _password){
+    getDataAkun(int no,String queryUsername,String queryPassword){
         this.number = no;
-        this.username = _username;
-        this.password = _password;
+        this.username = queryUsername;
+        this.password = queryPassword;
+        System.out.println(queryUsername +" | "+queryPassword);
     }
     
     public int getNumber(){

@@ -72,15 +72,15 @@ public class TambahAkunController implements Initializable {
     private TextField username;
     
 //    ======================================================================================================================
-     @FXML
-    private TableView<getDataAkun> showDataAkun;
-    
-    @FXML
-    private TableColumn<getDataAkun, String> columnPassword;
-
-    @FXML
-    private TableColumn<getDataAkun, String> columnUsername;
-    
+//     @FXML
+//    private TableView<getDataAkun> showDataAkun;
+//    
+//    @FXML
+//    private TableColumn<getDataAkun, String> columnPassword;
+//
+//    @FXML
+//    private TableColumn<getDataAkun, String> columnUsername;
+//    
     ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
      
 //     =====================================================================================================================
@@ -88,8 +88,7 @@ public class TambahAkunController implements Initializable {
       @Override
     public void initialize(URL url, ResourceBundle rb) {
          try{
-            String r_hari,r_kelas,r_jam,r_kode;
-            
+           
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
@@ -99,7 +98,7 @@ public class TambahAkunController implements Initializable {
                 String queryUsername = rst.getString("username");
                 String queryPassword = rst.getString("password");
                 
-                getDataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
+               getDataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
                 number +=1;
             }
             
@@ -145,7 +144,7 @@ public class TambahAkunController implements Initializable {
             }
            }else{
 //               JOptionPane.showMessageDialog(null, "Password doesn't Match!!");
-               r_password.setText("");
+                r_password.setText("");
            }
 
     }
