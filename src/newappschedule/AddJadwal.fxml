@@ -11,7 +11,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newappschedule.AddJadwalController">
    <center>
-      <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="362.0" style="-fx-background-color: #DAEDD2;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="keyword" nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="362.0" style="-fx-background-color: #DAEDD2;" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane layoutX="-40.0" layoutY="56.0" prefHeight="330.0" prefWidth="316.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0">
                <children>
@@ -111,11 +111,16 @@
                   </Text>
                </children>
             </AnchorPane>
-            <TextField alignment="TOP_RIGHT" layoutX="19.0" layoutY="26.0" prefHeight="40.0" prefWidth="265.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <TextField fx:id="keyword" alignment="TOP_RIGHT" layoutX="121.0" layoutY="26.0" prefHeight="40.0" prefWidth="164.0" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="Poppins Regular" size="18.0" />
                </font>
             </TextField>
+            <Button fx:id="cari" layoutX="25.0" layoutY="20.0" mnemonicParsing="false" onAction="#searchData" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #303D7A;" text="Cari" textFill="WHITE">
+               <font>
+                  <Font name="Poppins Regular" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>

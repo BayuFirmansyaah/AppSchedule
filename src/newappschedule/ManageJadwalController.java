@@ -208,7 +208,6 @@ public class ManageJadwalController implements Initializable {
             tableViewJadwal.getItems().clear();
             String key = keyword.getText().trim();
             int lengthKey = key.length();
-            System.out.println(lengthKey);
         
             String r_hari,r_kelas,r_jam,r_kode;
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();

@@ -37,7 +37,7 @@ import javax.swing.JOptionPane;
  */
 public class AddJadwalController implements Initializable {
     
-//    element
+//    element  ==========================================================================================================
     @FXML
     private TextField hari_penggunaan;
     
@@ -49,7 +49,13 @@ public class AddJadwalController implements Initializable {
 
     @FXML
     private TextField nama_kelas;
+    
+    @FXML
+    private TextField keyword;
 
+
+//    button element =====================================================================================================
+    
     @FXML
     private Button tambahData;
     
@@ -77,7 +83,7 @@ public class AddJadwalController implements Initializable {
      @FXML
     private Button tambahDataBtn;
 
-//     =======================================================================================
+//     ====================================================================================================================================
      
       @FXML
     private TableView<getDataJadwal> tableViewJadwal;
@@ -100,14 +106,14 @@ public class AddJadwalController implements Initializable {
     
     ObservableList<getDataJadwal> getDataJadwalObservableList = FXCollections.observableArrayList();
 
-//   =============================================================================================
+//   ===============================================================================================================================
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.getData();
     }  
     
-//   ================================================================================================== 
+//   ===================================================================================================================================== 
 //    get data
     public void getData(){
            try{
@@ -143,7 +149,7 @@ public class AddJadwalController implements Initializable {
         }
     }
     
-// Tambah Data    
+// Tambah Data    ==========================================================================================================================
      @FXML
     void addData(ActionEvent event) {
         String namaKelas = nama_kelas.getText().trim();
@@ -187,10 +193,55 @@ public class AddJadwalController implements Initializable {
         }
         
     }
+    
+//    seacrh data  =========================================================================================================================
+     
+      @FXML
+    void searchData(ActionEvent event) {  
+        try{
+            tableViewJadwal.getItems().clear();
+            String key = keyword.getText().trim();
+            int lengthKey = key.length();
+        
+            String r_hari,r_kelas,r_jam,r_kode;
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            String sql;
+            if(lengthKey==0){
+                sql = "SELECT * FROM jadwal";
+            }else{
+                 sql = "SELECT * FROM jadwal WHERE kode='"+key+"'";
+            }
+            java.sql.ResultSet rst = stm.executeQuery(sql);
+            int number = 1;
+            
+            while(rst.next()){
+                String queryKelas = rst.getString("kelas");
+                String queryHari = rst.getString("hari");
+                String queryJam = rst.getString("jam");
+                String queryKode = rst.getString("kode");
+                int queryId = rst.getInt("id");
+                
+                getDataJadwalObservableList.add(new getDataJadwal(number,queryId,queryKelas,queryHari,queryJam,queryKode));
+                number +=1;
+            }
+            
+            columnHari.setCellValueFactory(new PropertyValueFactory<>("hari"));
+            columnNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
+            columnKelas.setCellValueFactory(new PropertyValueFactory<>("kelas"));
+            columnJam.setCellValueFactory(new PropertyValueFactory<>("jam"));
+            columnKode.setCellValueFactory(new PropertyValueFactory<>("kode"));
+            
+            tableViewJadwal.setItems(getDataJadwalObservableList);
+            
+                                           
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }
+    }
      
      
-     
-//     change page
+//     change page  =========================================================================================================================
     @FXML
     void informasiPage(ActionEvent event) {
         try{
