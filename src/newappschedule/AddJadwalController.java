@@ -117,8 +117,9 @@ public class AddJadwalController implements Initializable {
                 String queryHari = rst.getString("hari");
                 String queryJam = rst.getString("jam");
                 String queryKode = rst.getString("kode");
+                int queryId = rst.getInt("id");
                 
-                getDataJadwalObservableList.add(new getDataJadwal(number,queryKelas,queryHari,queryJam,queryKode));
+                getDataJadwalObservableList.add(new getDataJadwal(number,queryId,queryKelas,queryHari,queryJam,queryKode));
                 
                 number+=1;
             }

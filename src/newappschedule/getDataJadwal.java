@@ -12,10 +12,11 @@ package newappschedule;
 public class getDataJadwal {
     
     String hari,kelas,jam,kode;
-    int number;
+    int number,id;
 
-    getDataJadwal(int queryNumber,String queryKelas, String queryHari, String queryJam, String queryKode) {
+    getDataJadwal(int queryNumber,int queryId,String queryKelas, String queryHari, String queryJam, String queryKode) {
         this.number = queryNumber;
+        this.id = queryId;
         this.hari = queryHari;
         this.kelas = queryKelas;
         this.jam = queryJam;
@@ -24,6 +25,10 @@ public class getDataJadwal {
     
     public int getNumber(){
         return number;
+    }
+    
+    public int getId(){
+        return id;
     }
     
     public String getHari(){
@@ -46,6 +51,10 @@ public class getDataJadwal {
     
     public void setNumber(int _number){
         this.number = _number;
+    }
+    
+    public void setId(int _id){
+        this.id = _id;
     }
     
     public void setHari(String _hari){

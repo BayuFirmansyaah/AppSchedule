@@ -39,7 +39,7 @@ public class ManageJadwalController implements Initializable {
      * Initializes the controller class.
      */
     
-    
+//  button element    ===============================================================================================
      @FXML 
     private Button informasiJadwal;
      
@@ -61,6 +61,7 @@ public class ManageJadwalController implements Initializable {
      @FXML
     private Button tambahAkunBTN;
      
+//    input element ===============================================================================================
        @FXML
     private TextField hari;
        
@@ -72,6 +73,7 @@ public class ManageJadwalController implements Initializable {
 
     @FXML
     private TextField lama;
+    
 //===================================================================================================================
       @FXML
     private TableView<getDataJadwal> tableViewJadwal;
@@ -95,6 +97,8 @@ public class ManageJadwalController implements Initializable {
     ObservableList<getDataJadwal> getDataJadwalObservableList = FXCollections.observableArrayList();
     
 //    ===================================================================================================
+//    Global Variable
+    int id_data;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -116,8 +120,9 @@ public class ManageJadwalController implements Initializable {
                 String queryHari = rst.getString("hari");
                 String queryJam = rst.getString("jam");
                 String queryKode = rst.getString("kode");
+                int queryId = rst.getInt("id");
                 
-                getDataJadwalObservableList.add(new getDataJadwal(number,queryKelas,queryHari,queryJam,queryKode));
+                getDataJadwalObservableList.add(new getDataJadwal(number,queryId,queryKelas,queryHari,queryJam,queryKode));
                 number +=1;
             }
             
@@ -129,8 +134,8 @@ public class ManageJadwalController implements Initializable {
             
             tableViewJadwal.setItems(getDataJadwalObservableList);
             
-            tableViewJadwal.setOnMouseClicked(e->{
-                events();
+            tableViewJadwal.setOnMouseClicked(event->{
+               this.events();
             });
                                            
         }catch(SQLException e){
@@ -138,16 +143,63 @@ public class ManageJadwalController implements Initializable {
         }
     }
     
+    
+//    get data when row clicked ==============================================================================================================
     private void events(){
         for(getDataJadwal getData: tableViewJadwal.getSelectionModel().getSelectedItems()){
-            for(int i=0;i<=1;i++){
-                System.out.println(getData.getKelas());
+            for(int i=0;i<1;i++){
+                hari.setText(getData.getHari());
+                kelas.setText(getData.getKelas());
+                kode.setText(getData.getKode());
+                lama.setText(getData.getJam());
+                this.id_data = getData.getId();
             }
         }
     }
     
+
+//hapus data  =================================================================================================================================
+    @FXML
+    void deleteData(ActionEvent event){
+        try{
+            String sql = "DELETE FROM jadwal WHERE id="+this.id_data; 
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            System.out.print("data berhasil di hapus");
+            tableViewJadwal.getItems().clear();
+            this.getData();
+        }catch(SQLException e){
+            System.out.print(e);
+        }
+    }
+    
+// edit data ==================================================================================================================================
+    @FXML
+    void updateData(ActionEvent event){        
+        try{
+//          get data
+            String _kelas = kelas.getText();
+            String _lama = lama.getText();
+            String _kode = kode.getText();
+            String _hari = hari.getText();
+            
+            String sql = "UPDATE jadwal SET hari='"+_hari+"',kelas='"+_kelas+"',jam='"+_lama+"',kode='"+_kode+"' WHERE id='"+this.id_data+"'";
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            System.out.print("data berhasil di perbarui");
+            tableViewJadwal.getItems().clear();
+            this.getData();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+    }
    
-     
+    
+    
+    
+//    move page ===============================================================================================================================
     @FXML
     void informasiPage(ActionEvent event) {
         try{
