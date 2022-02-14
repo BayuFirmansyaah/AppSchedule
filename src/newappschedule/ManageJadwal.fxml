@@ -17,7 +17,7 @@
                <children>
                   <AnchorPane layoutX="33.0" layoutY="7.0" prefHeight="397.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="263.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView fx:id="tableViewJadwal" layoutX="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tableViewJadwal" layoutX="45.0" onMouseClicked="#getDataFromRowClick" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="columnKode" prefWidth="75.0" text="Kode Lab" />
                             <TableColumn fx:id="columnJam" prefWidth="75.0" text="Jam" />
@@ -44,7 +44,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="46.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="kelas" alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -62,7 +62,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="126.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="hari" alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -78,12 +78,12 @@
                               </Text>
                            </children>
                         </AnchorPane>
-                        <TextField alignment="TOP_RIGHT" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <TextField fx:id="lama" alignment="TOP_RIGHT" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField alignment="TOP_RIGHT" layoutX="20.0" layoutY="287.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <TextField fx:id="kode" alignment="TOP_RIGHT" layoutX="20.0" layoutY="287.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="18.0" />
                            </font>

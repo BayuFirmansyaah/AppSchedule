@@ -20,15 +20,15 @@ public class getDataAkun {
    }
    
    public int getNumber(){
-       return this.number;
+       return number;
    }
    
    public String getUsername(){
-       return this.username;
+       return username;
    }
    
    public String getPassword(){
-       return this.password;
+       return password;
    }
    
    

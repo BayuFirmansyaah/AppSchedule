@@ -6,6 +6,7 @@
 package newappschedule;
 
 import database.KoneksiDatabase;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -23,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -58,6 +60,18 @@ public class ManageJadwalController implements Initializable {
     
      @FXML
     private Button tambahAkunBTN;
+     
+       @FXML
+    private TextField hari;
+       
+     @FXML
+    private TextField kelas;
+
+    @FXML
+    private TextField kode;
+
+    @FXML
+    private TextField lama;
 //===================================================================================================================
       @FXML
     private TableView<getDataJadwal> tableViewJadwal;
@@ -84,6 +98,11 @@ public class ManageJadwalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.getData();
+    }  
+    
+    
+    public void getData(){
         try{
             String r_hari,r_kelas,r_jam,r_kode;
             
@@ -109,22 +128,25 @@ public class ManageJadwalController implements Initializable {
             columnKode.setCellValueFactory(new PropertyValueFactory<>("kode"));
             
             tableViewJadwal.setItems(getDataJadwalObservableList);
+            
+            tableViewJadwal.setOnMouseClicked(e->{
+                events();
+            });
                                            
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
-    }  
+    }
     
+    private void events(){
+        for(getDataJadwal getData: tableViewJadwal.getSelectionModel().getSelectedItems()){
+            for(int i=0;i<=1;i++){
+                System.out.println(getData.getKelas());
+            }
+        }
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
      
     @FXML
     void informasiPage(ActionEvent event) {
@@ -250,4 +272,5 @@ public class ManageJadwalController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }
