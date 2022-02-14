@@ -17,7 +17,7 @@
                <children>
                   <AnchorPane layoutX="33.0" layoutY="7.0" prefHeight="397.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="263.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView fx:id="tableViewJadwal" layoutX="45.0" onMouseClicked="#getDataFromRowClick" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tableViewJadwal" layoutX="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="columnKode" prefWidth="75.0" text="Kode Lab" />
                             <TableColumn fx:id="columnJam" prefWidth="75.0" text="Jam" />
