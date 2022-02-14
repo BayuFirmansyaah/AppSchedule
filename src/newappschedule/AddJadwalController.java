@@ -38,6 +38,9 @@ import javax.swing.JOptionPane;
 public class AddJadwalController implements Initializable {
     
 //    element  ==========================================================================================================
+   @FXML
+    private TextField key;
+    
     @FXML
     private TextField hari_penggunaan;
     
@@ -49,9 +52,7 @@ public class AddJadwalController implements Initializable {
 
     @FXML
     private TextField nama_kelas;
-    
-    @FXML
-    private TextField keyword;
+   
 
 
 //    button element =====================================================================================================
@@ -164,7 +165,8 @@ public class AddJadwalController implements Initializable {
            lamaPenggunaan.equals("")||
            kodeLaboratorium.equals("")){
 //          alert
-            JOptionPane.showMessageDialog(null, "Data harus di isi semua!! ");
+//            JOptionPane.showMessageDialog(null, "Data harus di isi semua!! ");
+               System.out.println("data harus di isi");
 
         }else{
             try{
@@ -200,8 +202,8 @@ public class AddJadwalController implements Initializable {
     void searchData(ActionEvent event) {  
         try{
             tableViewJadwal.getItems().clear();
-            String key = keyword.getText().trim();
-            int lengthKey = key.length();
+            String keyword = key.getText().trim();
+            int lengthKey = keyword.length();
         
             String r_hari,r_kelas,r_jam,r_kode;
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
@@ -210,7 +212,7 @@ public class AddJadwalController implements Initializable {
             if(lengthKey==0){
                 sql = "SELECT * FROM jadwal";
             }else{
-                 sql = "SELECT * FROM jadwal WHERE kode='"+key+"'";
+                 sql = "SELECT * FROM jadwal WHERE kode='"+keyword+"'";
             }
             java.sql.ResultSet rst = stm.executeQuery(sql);
             int number = 1;

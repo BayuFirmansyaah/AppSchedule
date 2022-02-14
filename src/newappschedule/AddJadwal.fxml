@@ -111,7 +111,7 @@
                   </Text>
                </children>
             </AnchorPane>
-            <TextField fx:id="keyword" alignment="TOP_RIGHT" layoutX="121.0" layoutY="26.0" prefHeight="40.0" prefWidth="164.0" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="20.0">
+            <TextField fx:id="key" alignment="TOP_RIGHT" layoutX="121.0" layoutY="26.0" prefHeight="40.0" prefWidth="164.0" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="Poppins Regular" size="18.0" />
                </font>

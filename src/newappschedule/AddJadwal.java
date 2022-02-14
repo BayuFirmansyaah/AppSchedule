@@ -28,7 +28,7 @@ public class AddJadwal extends Application {
         Scene scene = new Scene(root, 800, 500);
         stage.setTitle("Add Jadwal ");
         stage.centerOnScreen();
-        stage.setMaximized(true);
+//        stage.setMaximized(true);
 //        stage.setFullScreen(true);
         stage.centerOnScreen();
         stage.setScene(scene);
