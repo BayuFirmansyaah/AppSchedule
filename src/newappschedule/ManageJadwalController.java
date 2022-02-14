@@ -6,6 +6,7 @@
 package newappschedule;
 
 import database.KoneksiDatabase;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -73,6 +74,9 @@ public class ManageJadwalController implements Initializable {
 
     @FXML
     private TextField lama;
+    
+    @FXML
+    private TextField keyword;
     
 //===================================================================================================================
       @FXML
@@ -188,7 +192,7 @@ public class ManageJadwalController implements Initializable {
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
-            System.out.print("data berhasil di perbarui");
+            System.out.println("data berhasil di perbarui");
             tableViewJadwal.getItems().clear();
             this.getData();
         }catch(SQLException e){
@@ -196,7 +200,53 @@ public class ManageJadwalController implements Initializable {
         }
     }
    
-    
+  
+//   live searching  ========================================================================================================
+    @FXML
+    void searchData(ActionEvent event) {  
+        try{
+            tableViewJadwal.getItems().clear();
+            String key = keyword.getText().trim();
+            int lengthKey = key.length();
+            System.out.println(lengthKey);
+        
+            String r_hari,r_kelas,r_jam,r_kode;
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            String sql;
+            if(lengthKey==0){
+                sql = "SELECT * FROM jadwal";
+            }else{
+                 sql = "SELECT * FROM jadwal WHERE kode='"+key+"'";
+            }
+            java.sql.ResultSet rst = stm.executeQuery(sql);
+            int number = 1;
+            
+            while(rst.next()){
+                String queryKelas = rst.getString("kelas");
+                String queryHari = rst.getString("hari");
+                String queryJam = rst.getString("jam");
+                String queryKode = rst.getString("kode");
+                int queryId = rst.getInt("id");
+                
+                getDataJadwalObservableList.add(new getDataJadwal(number,queryId,queryKelas,queryHari,queryJam,queryKode));
+                number +=1;
+            }
+            
+            columnHari.setCellValueFactory(new PropertyValueFactory<>("hari"));
+            columnNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
+            columnKelas.setCellValueFactory(new PropertyValueFactory<>("kelas"));
+            columnJam.setCellValueFactory(new PropertyValueFactory<>("jam"));
+            columnKode.setCellValueFactory(new PropertyValueFactory<>("kode"));
+            
+            tableViewJadwal.setItems(getDataJadwalObservableList);
+            
+                                           
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }
+        
+    }
     
     
 //    move page ===============================================================================================================================

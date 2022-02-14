@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -123,11 +124,25 @@ public class DashboardController implements Initializable {
         }
     } 
     
-       
-    public void handdleButonLogin () throws Exception{
-         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-         Stage window = (Stage) login.getScene().getWindow();
-         window.setScene(new Scene(root,789,500));
+      
+    
+     @FXML
+    void handdleButonLogin(ActionEvent event) {
+         try{
+            Parent parent = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Scene scene = new Scene(parent);
+            Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.setTitle("Manage Jadwal");
+            window.setMaximized(true);
+            window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
+            window.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
     }
     
     

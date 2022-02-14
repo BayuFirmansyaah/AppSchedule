@@ -104,7 +104,13 @@ public class AddJadwalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try{
+        this.getData();
+    }  
+    
+//   ================================================================================================== 
+//    get data
+    public void getData(){
+           try{
             String r_hari,r_kelas,r_jam,r_kode;
             
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
@@ -135,11 +141,7 @@ public class AddJadwalController implements Initializable {
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
-    }  
-    
-    
-    
-//   ================================================================================================== 
+    }
     
 // Tambah Data    
      @FXML
@@ -173,6 +175,9 @@ public class AddJadwalController implements Initializable {
                 lama_penggunaan.setText("");
                 hari_penggunaan.setText("");
                 kode_laboratorium.setText("");
+                
+                tableViewJadwal.getItems().clear();
+                this.getData();
             }catch(SQLException e){
                 //            alert
 //                JOptionPane.showMessageDialog(null, e);

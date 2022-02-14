@@ -116,11 +116,16 @@
                   </Text>
                </children>
             </AnchorPane>
-            <TextField alignment="TOP_RIGHT" layoutX="19.0" layoutY="26.0" prefHeight="40.0" prefWidth="265.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <TextField fx:id="keyword" alignment="TOP_RIGHT" layoutX="128.0" layoutY="26.0" prefHeight="40.0" prefWidth="157.0" AnchorPane.leftAnchor="128.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="Poppins Regular" size="18.0" />
                </font>
             </TextField>
+            <Button layoutX="28.0" layoutY="21.0" mnemonicParsing="false" onAction="#searchData" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #303D7A;" text="Cari" textFill="WHITE">
+               <font>
+                  <Font name="Poppins Regular" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>
