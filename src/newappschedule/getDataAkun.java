@@ -10,8 +10,8 @@ package newappschedule;
  * @author bayu firmansyah
  */
 public class getDataAkun {
-   String username,password;
    int number;
+   String username,password;
    
    getDataAkun(int queryNumber, String queryUsername, String queryPassword){
        this.username = queryUsername;

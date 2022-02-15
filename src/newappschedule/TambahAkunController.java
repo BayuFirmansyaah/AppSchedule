@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 import database.KoneksiDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 /**
@@ -37,7 +38,15 @@ public class TambahAkunController implements Initializable {
     /**
      * Initializes the controller class.
      */
-   
+    
+     @FXML
+    private TableView<getDataAkun> showDataAkun;
+
+    ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
+  
+    
+//    ======================================================================================================================
+        
      @FXML 
     private Button informasiJadwal;
      
@@ -70,28 +79,25 @@ public class TambahAkunController implements Initializable {
     
     @FXML
     private TextField username;
-    
-//    ======================================================================================================================
-    
- @FXML
-    private TableView<getDataAkun> tabelDataAkun;
-
-    @FXML
-    private TableColumn<getDataAkun, String> tabelNo;
-
-    @FXML
-    private TableColumn<getDataAkun, String> tabelPassword;
-
-    @FXML
-    private TableColumn<getDataAkun, String> tabelUsername;
-    
-    ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
-     
 //     =====================================================================================================================
-     
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      
+      @FXML
+    private TableColumn<getDataAkun, String> no;
+
+      @FXML
+    private TableColumn<getDataAkun, String> pw;
+
+    @FXML
+    private TableColumn<getDataAkun, String> us;
+    
       @Override
     public void initialize(URL url, ResourceBundle rb) {
-         try{
+        this.getData();
+    }   
+     
+    public void getData(){
+        try{
            
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
@@ -102,21 +108,23 @@ public class TambahAkunController implements Initializable {
                 String queryUsername = rst.getString("username");
                 String queryPassword = rst.getString("password");
                 
-               getDataAkunObservableList.add(new getDataAkun(number,"username","password"));
+//               getDataAkunObservableList.add(new getDataAkun(number,"username","password"));
+                System.out.println(queryUsername +" | "+queryPassword);
                 number +=1;
             }
             
-            tabelNo.setCellValueFactory(new PropertyValueFactory<>("number"));
-            tabelUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-            tabelPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
-            
-            tabelDataAkun.setItems(getDataAkunObservableList);
+//            colNo.setCellValueFactory(new PropertyValueFactory<>("number"));
+//            colUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+//            colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+//            
+//            showDataAkun.setItems(getDataAkunObservableList);
                                            
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
-    }   
-     
+    }
+    
+    
     
 // =========================================================================================================================
 //     add account backend fitur
@@ -135,7 +143,10 @@ public class TambahAkunController implements Initializable {
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                 pst.execute();
 //            alert
-//                JOptionPane.showMessageDialog(null, "Data Berhasil Ditambahkan");
+                alert.setTitle("Berhasil!!");
+                alert.setHeaderText(null);
+                alert.setContentText("Berhasil Menambahkan Data");
+                alert.showAndWait();
                 
 //            pengkosongan data akun
                 username.setText("");
@@ -149,7 +160,10 @@ public class TambahAkunController implements Initializable {
             }
            }else{
 //               JOptionPane.showMessageDialog(null, "Password doesn't Match!!");
-                r_password.setText("");
+                alert.setTitle("Warning!!");
+                alert.setHeaderText(null);
+                alert.setContentText("Password doesn't Match!!");
+                alert.showAndWait();
            }
 
     }

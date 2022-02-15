@@ -26,10 +26,10 @@ public class TambahAkun extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("TambahAkun.fxml"));
         
         Scene scene = new Scene(root, 800, 500);
-        stage.setTitle("Tambah Akun (Not Responding)");
+        stage.setTitle("Tambah Akun");
         stage.centerOnScreen();
-        stage.setMaximized(true);
-        stage.setFullScreen(true);
+//        stage.setMaximized(true);
+//        stage.setFullScreen(true);
         stage.centerOnScreen();
         stage.setScene(scene);
         stage.show();
