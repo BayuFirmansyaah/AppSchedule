@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -36,6 +37,9 @@ public class DashboardController implements Initializable {
     
     @FXML
     Button login;
+    
+      @FXML
+    private TextField keyword;
     
     @FXML
     private TableView<shortDataShow> showDataJadwal;
@@ -74,12 +78,18 @@ public class DashboardController implements Initializable {
       
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try{
+       this.getData();
+    }
+    
+    
+    public void getData(){
+        try{   
             String r_hari,r_kelas,r_jam,r_kode;
             
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal WHERE kode='rpl1'");
+            String sql = "SELECT * FROM jadwal WHERE kode='rpl1'";
+            java.sql.ResultSet rst = stm.executeQuery(sql);
 
             while(rst.next()){
                 r_hari = rst.getString("hari");
@@ -142,7 +152,6 @@ public class DashboardController implements Initializable {
         }catch(IOException e){
             e.printStackTrace();
         }
-
     }
     
     
@@ -197,8 +206,78 @@ public class DashboardController implements Initializable {
     }
     
     
-   
+     @FXML
+    void searchData(ActionEvent event) {
+        showDataJadwal.getItems().clear();
+        String key= keyword.getText().trim();
+        int keyLength = key.length();
+        
+        try{
+            
+            this.dataSenin.clear();
+            this.dataSelasa.clear();
+            this.dataRabu.clear();
+            this.dataKamis.clear();
+            this.dataJumat.clear();
+            
+            String r_hari,r_kelas,r_jam,r_kode;
+            
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            String sql;
+            if(keyLength == 0){
+                sql = "SELECT * FROM jadwal WHERE kode='rpl1'";
+            }else{
+                 sql = "SELECT * FROM jadwal WHERE kode='"+key+"'";
+            }
+            
+            java.sql.ResultSet rst = stm.executeQuery(sql);
+
+            while(rst.next()){
+                r_hari = rst.getString("hari");
+                r_kelas = rst.getString("kelas");
+                r_jam = rst.getString("jam");
+                r_kode = rst.getString("kode");
+       
+                
+                this.filterData(r_hari, r_kelas, r_jam, r_kode);             
+            }
+            
+            String jSenin,jSelasa,jRabu,jKamis,jJumat;
+                
+            int lengthData = this.dataSenin.size();
+            int jam = 1;
+            
+            for(int i=0;i<lengthData;i++){
+                jSenin = this.dataSenin.get(i);
+                jSelasa = this.dataSelasa.get(i);
+                jRabu = this.dataRabu.get(i);
+                jKamis = this.dataKamis.get(i);
+                jJumat = this.dataJumat.get(i);
+                
+                shortDataShowObservableList.add(new shortDataShow(jam,jSenin,jSelasa,jRabu,jKamis,jJumat));
+                
+                jam+=1;
+               
+            }
+            
+            columnJam.setCellValueFactory(new PropertyValueFactory<>("number"));
+            columnSenin.setCellValueFactory(new PropertyValueFactory<>("senin"));
+            columnSelasa.setCellValueFactory(new PropertyValueFactory<>("selasa"));
+            columnRabu.setCellValueFactory(new PropertyValueFactory<>("rabu"));
+            columnKamis.setCellValueFactory(new PropertyValueFactory<>("kamis"));
+            columnJumat.setCellValueFactory(new PropertyValueFactory<>("jumat"));
+            
+            showDataJadwal.setItems(shortDataShowObservableList);
+               
+//            
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }
+    } 
     
+      
+      
     
     
     

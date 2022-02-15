@@ -25,6 +25,7 @@ import java.sql.*;
 import database.KoneksiDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -108,6 +109,7 @@ public class AddJadwalController implements Initializable {
     ObservableList<getDataJadwal> getDataJadwalObservableList = FXCollections.observableArrayList();
 
 //   ===============================================================================================================================
+     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -183,6 +185,11 @@ public class AddJadwalController implements Initializable {
                 lama_penggunaan.setText("");
                 hari_penggunaan.setText("");
                 kode_laboratorium.setText("");
+                
+                alert.setTitle("Berhasil!!");
+                alert.setHeaderText(null);
+                alert.setContentText("Berhasil Menambahkan Data");
+                alert.showAndWait();
                 
                 tableViewJadwal.getItems().clear();
                 this.getData();

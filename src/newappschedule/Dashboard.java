@@ -22,11 +22,11 @@ import javafx.stage.Stage;
  * @author bayu firmansyah
  */
 public class Dashboard extends Application {
-    
-     @Override
+
+    @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-       
+
         Scene scene = new Scene(root, 800, 500);
         stage.setTitle("Dashboard");
         stage.centerOnScreen();
@@ -35,11 +35,12 @@ public class Dashboard extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

@@ -22,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -104,6 +106,8 @@ public class ManageJadwalController implements Initializable {
 //    Global Variable
     int id_data;
     
+    Alert alert = new Alert(AlertType.INFORMATION);
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.getData();
@@ -170,7 +174,10 @@ public class ManageJadwalController implements Initializable {
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
-            System.out.print("data berhasil di hapus");
+            alert.setTitle("Berhasil!!");
+            alert.setHeaderText(null);
+            alert.setContentText("Berhasil Memperbarui Data");
+            alert.showAndWait();
             tableViewJadwal.getItems().clear();
             this.getData();
         }catch(SQLException e){
@@ -192,7 +199,12 @@ public class ManageJadwalController implements Initializable {
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
-            System.out.println("data berhasil di perbarui");
+            
+            alert.setTitle("Berhasil!!");
+            alert.setHeaderText(null);
+            alert.setContentText("Berhasil Menghapus Data");
+            alert.showAndWait();
+            
             tableViewJadwal.getItems().clear();
             this.getData();
         }catch(SQLException e){

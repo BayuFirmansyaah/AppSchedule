@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -57,6 +58,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private Text notif_username;
+    
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     @FXML
     void actionLogin(ActionEvent event) {
@@ -78,11 +81,22 @@ public class LoginController implements Initializable {
                             e.printStackTrace();
                         }
                     }else{
-                        notif_password.setText("password wrong");
+                        alert.setTitle("Warning!!");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Password yang anda masukan salah");
+                        alert.showAndWait();
                     }
-                }
+                }else{
+                    alert.setTitle("Warning!!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Tidak dapat menemukan akun dengan username "+username.getText());
+                    alert.showAndWait();
+               }
            }catch(SQLException e){
-               notif_username.setText("username not found");
+               alert.setTitle("Warning!!");
+                alert.setHeaderText(null);
+                alert.setContentText("Sql Error :"+e);
+                alert.showAndWait();
            }
     }
     
