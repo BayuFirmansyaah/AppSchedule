@@ -30,7 +30,7 @@ public class Dashboard extends Application {
         Scene scene = new Scene(root, 800, 500);
         stage.setTitle("Dashboard");
         stage.centerOnScreen();
-//        stage.setMaximized(true);
+        stage.setMaximized(true);
         stage.centerOnScreen();
         stage.setScene(scene);
         stage.show();

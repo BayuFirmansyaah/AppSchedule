@@ -174,10 +174,17 @@ public class ManageJadwalController implements Initializable {
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
+            
             alert.setTitle("Berhasil!!");
             alert.setHeaderText(null);
-            alert.setContentText("Berhasil Memperbarui Data");
+            alert.setContentText("Berhasil Menghapus Data");
             alert.showAndWait();
+            
+            kelas.setText("");
+            lama.setText("");
+            kode.setText("");
+            hari.setText("");
+                    
             tableViewJadwal.getItems().clear();
             this.getData();
         }catch(SQLException e){
@@ -202,8 +209,13 @@ public class ManageJadwalController implements Initializable {
             
             alert.setTitle("Berhasil!!");
             alert.setHeaderText(null);
-            alert.setContentText("Berhasil Menghapus Data");
+            alert.setContentText("Berhasil Memperbarui Data");
             alert.showAndWait();
+            
+            kelas.setText("");
+            lama.setText("");
+            kode.setText("");
+            hari.setText("");
             
             tableViewJadwal.getItems().clear();
             this.getData();

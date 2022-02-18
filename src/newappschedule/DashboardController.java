@@ -11,6 +11,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -73,6 +74,7 @@ public class DashboardController implements Initializable {
     ArrayList<String> dataRabu = new ArrayList<String>();
     ArrayList<String> dataKamis = new ArrayList<String>();
     ArrayList<String> dataJumat = new ArrayList<String>();
+    ArrayList<Integer> lengthArray = new ArrayList<Integer>();
     
  
       
@@ -102,9 +104,63 @@ public class DashboardController implements Initializable {
             }
             
             String jSenin,jSelasa,jRabu,jKamis,jJumat;
-                
+            
+//           cek length array after add data
+            int lengthSenin = this.dataSenin.size();
+            int lengthSelasa = this.dataSelasa.size();
+            int lengthRabu = this.dataRabu.size();
+            int lengthKamis = this.dataKamis.size();
+            int lengthJumat = this.dataJumat.size();
+   
+//          tambahkan panjang array ke array baru  
+            this.lengthArray.add(lengthSenin);
+            this.lengthArray.add(lengthSelasa);
+            this.lengthArray.add(lengthRabu);
+            this.lengthArray.add(lengthKamis);
+            this.lengthArray.add(lengthJumat);
+
+//          cari nilai array paling panjang
+            int longArray = Collections.max(lengthArray);
+
+//          tambahkan nilai kosong untuk menyamakan array
+            if(lengthSenin != longArray){
+                while(lengthSenin!= longArray){
+                    dataSenin.add(" ");
+                    lengthSenin = this.dataSenin.size();
+                }
+            }
+            
+            if(lengthSelasa != longArray){
+                while(lengthSelasa!= longArray){
+                    dataSelasa.add(" ");
+                    lengthSelasa = this.dataSelasa.size();
+                }
+            }
+            
+            if(lengthRabu != longArray){
+                while(lengthRabu!= longArray){
+                    dataRabu.add(" ");
+                    lengthRabu = this.dataRabu.size();
+                }
+            }
+
+            if(lengthKamis != longArray){
+                while(lengthKamis!= longArray){
+                    dataKamis.add(" ");
+                    lengthKamis = this.dataKamis.size();
+                }
+            }
+            
+            if(lengthJumat != longArray){
+                while(lengthJumat!= longArray){
+                    dataJumat.add(" ");
+                    lengthJumat = this.dataJumat.size();
+                }
+            }
+            
             int lengthData = this.dataSenin.size();
             int jam = 1;
+            
             
             for(int i=0;i<lengthData;i++){
                 jSenin = this.dataSenin.get(i);
@@ -219,6 +275,7 @@ public class DashboardController implements Initializable {
             this.dataRabu.clear();
             this.dataKamis.clear();
             this.dataJumat.clear();
+            this.lengthArray.clear();
             
             String r_hari,r_kelas,r_jam,r_kode;
             
@@ -243,10 +300,64 @@ public class DashboardController implements Initializable {
                 this.filterData(r_hari, r_kelas, r_jam, r_kode);             
             }
             
-            String jSenin,jSelasa,jRabu,jKamis,jJumat;
-                
+           String jSenin,jSelasa,jRabu,jKamis,jJumat;
+            
+//           cek length array after add data
+            int lengthSenin = this.dataSenin.size();
+            int lengthSelasa = this.dataSelasa.size();
+            int lengthRabu = this.dataRabu.size();
+            int lengthKamis = this.dataKamis.size();
+            int lengthJumat = this.dataJumat.size();
+   
+//          tambahkan panjang array ke array baru  
+            this.lengthArray.add(lengthSenin);
+            this.lengthArray.add(lengthSelasa);
+            this.lengthArray.add(lengthRabu);
+            this.lengthArray.add(lengthKamis);
+            this.lengthArray.add(lengthJumat);
+
+//          cari nilai array paling panjang
+            int longArray = Collections.max(lengthArray);
+
+//          tambahkan nilai kosong untuk menyamakan array
+            if(lengthSenin != longArray){
+                while(lengthSenin!= longArray){
+                    dataSenin.add(" ");
+                    lengthSenin = this.dataSenin.size();
+                }
+            }
+            
+            if(lengthSelasa != longArray){
+                while(lengthSelasa!= longArray){
+                    dataSelasa.add(" ");
+                    lengthSelasa = this.dataSelasa.size();
+                }
+            }
+            
+            if(lengthRabu != longArray){
+                while(lengthRabu!= longArray){
+                    dataRabu.add(" ");
+                    lengthRabu = this.dataRabu.size();
+                }
+            }
+
+            if(lengthKamis != longArray){
+                while(lengthKamis!= longArray){
+                    dataKamis.add(" ");
+                    lengthKamis = this.dataKamis.size();
+                }
+            }
+            
+            if(lengthJumat != longArray){
+                while(lengthJumat!= longArray){
+                    dataJumat.add(" ");
+                    lengthJumat = this.dataJumat.size();
+                }
+            }
+            
             int lengthData = this.dataSenin.size();
             int jam = 1;
+            
             
             for(int i=0;i<lengthData;i++){
                 jSenin = this.dataSenin.get(i);
@@ -268,9 +379,7 @@ public class DashboardController implements Initializable {
             columnKamis.setCellValueFactory(new PropertyValueFactory<>("kamis"));
             columnJumat.setCellValueFactory(new PropertyValueFactory<>("jumat"));
             
-            showDataJadwal.setItems(shortDataShowObservableList);
-               
-//            
+            showDataJadwal.setItems(shortDataShowObservableList);         
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }

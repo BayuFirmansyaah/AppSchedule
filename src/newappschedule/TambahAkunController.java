@@ -82,14 +82,14 @@ public class TambahAkunController implements Initializable {
 //     =====================================================================================================================
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
       
-      @FXML
-    private TableColumn<getDataAkun, String> no;
-
-      @FXML
-    private TableColumn<getDataAkun, String> pw;
-
-    @FXML
-    private TableColumn<getDataAkun, String> us;
+//      @FXML
+//    private TableColumn<getDataAkun, String> no;
+//
+//      @FXML
+//    private TableColumn<getDataAkun, String> pw;
+//
+//    @FXML
+//    private TableColumn<getDataAkun, String> us;
     
       @Override
     public void initialize(URL url, ResourceBundle rb) {
