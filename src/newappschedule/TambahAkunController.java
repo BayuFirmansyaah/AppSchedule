@@ -82,14 +82,15 @@ public class TambahAkunController implements Initializable {
 //     =====================================================================================================================
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
       
-//      @FXML
-//    private TableColumn<getDataAkun, String> no;
-//
-//      @FXML
-//    private TableColumn<getDataAkun, String> pw;
-//
-//    @FXML
-//    private TableColumn<getDataAkun, String> us;
+      
+      @FXML
+    private TableColumn<getDataAkun, String> no;
+
+      @FXML
+    private TableColumn<getDataAkun, String> pw;
+
+    @FXML
+    private TableColumn<getDataAkun, String> us;
     
       @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -105,17 +106,17 @@ public class TambahAkunController implements Initializable {
             int number = 1;
             
             while(rst.next()){
-                String queryUsername = rst.getString("username");
-                String queryPassword = rst.getString("password");
-                
-//               getDataAkunObservableList.add(new getDataAkun(number,"username","password"));
-                System.out.println(queryUsername +" | "+queryPassword);
-                number +=1;
+               String queryUsername = rst.getString("username");
+               String queryPassword = rst.getString("password");  
+               System.out.println(queryUsername +" | "+queryPassword);
+               getDataAkunObservableList.add(new getDataAkun(number,"username","password"));
+               
+               number +=1;
             }
             
-//            colNo.setCellValueFactory(new PropertyValueFactory<>("number"));
-//            colUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-//            colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+//            no.setCellValueFactory(new PropertyValueFactory<>("number"));
+//            us.setCellValueFactory(new PropertyValueFactory<>("username"));
+//            pw.setCellValueFactory(new PropertyValueFactory<>("password"));
 //            
 //            showDataAkun.setItems(getDataAkunObservableList);
                                            
