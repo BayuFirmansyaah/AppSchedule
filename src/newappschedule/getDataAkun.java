@@ -10,13 +10,13 @@ package newappschedule;
  * @author bayu firmansyah
  */
 public class getDataAkun {
-   int number;
-   String username,password;
+    String username,password;
+    int number;
    
-   getDataAkun(int queryNumber, String queryUsername, String queryPassword){
-       this.username = queryUsername;
-       this.password = queryPassword;
-       this.number = queryNumber;
+   getDataAkun(int number,String username,String password){
+       this.number = number;
+       this.username = username;
+       this.password = password;
    }
    
    public int getNumber(){
@@ -32,16 +32,16 @@ public class getDataAkun {
    }
    
    
-   public void setNumber(int queryNumber){
-       this.number = queryNumber;
+   public void setNumber(int number){
+       this.number = number;
    }
    
-   public void setUsername(String queryUsername){
-       this.username = queryUsername;
+   public void setUsername(String username){
+       this.username = username;
    }
    
-   public void setPassword(String queryPassword){
-       this.password = queryPassword;
+   public void setPassword(String password){
+       this.password = password;
    }
    
    

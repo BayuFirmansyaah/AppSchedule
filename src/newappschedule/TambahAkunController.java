@@ -39,11 +39,6 @@ public class TambahAkunController implements Initializable {
      * Initializes the controller class.
      */
     
-     @FXML
-    private TableView<getDataAkun> showDataAkun;
-
-    ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
-  
     
 //    ======================================================================================================================
         
@@ -65,6 +60,10 @@ public class TambahAkunController implements Initializable {
     @FXML
     private Button dashboardJadwal;
     
+    @FXML
+    private TableView<getDataAkun> tAkun;
+
+    
      @FXML
     private Button tambahAkunBTN;
      
@@ -77,25 +76,25 @@ public class TambahAkunController implements Initializable {
     @FXML
     private TextField r_password;
     
+     @FXML
+    private TableColumn<getDataAkun, String> tno;
+
+    @FXML
+    private TableColumn<getDataAkun, String> tpw;
+
+    @FXML
+    private TableColumn<getDataAkun, String> tus;
+
+    
     @FXML
     private TextField username;
 //     =====================================================================================================================
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
-      
-      
-      @FXML
-    private TableColumn<getDataAkun, String> no;
-
-      @FXML
-    private TableColumn<getDataAkun, String> pw;
-
-    @FXML
-    private TableColumn<getDataAkun, String> us;
+   
+   
     
-      @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        this.getData();
-    }   
+    ObservableList<getDataAkun> dataAkunObservableList = FXCollections.observableArrayList();
+    
      
     public void getData(){
         try{
@@ -108,24 +107,27 @@ public class TambahAkunController implements Initializable {
             while(rst.next()){
                String queryUsername = rst.getString("username");
                String queryPassword = rst.getString("password");  
-               System.out.println(queryUsername +" | "+queryPassword);
-               getDataAkunObservableList.add(new getDataAkun(number,"username","password"));
+               dataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
                
                number +=1;
             }
             
-//            no.setCellValueFactory(new PropertyValueFactory<>("number"));
-//            us.setCellValueFactory(new PropertyValueFactory<>("username"));
-//            pw.setCellValueFactory(new PropertyValueFactory<>("password"));
-//            
-//            showDataAkun.setItems(getDataAkunObservableList);
+            tno.setCellValueFactory(new PropertyValueFactory<>("number"));
+            tus.setCellValueFactory(new PropertyValueFactory<>("username"));
+            tpw.setCellValueFactory(new PropertyValueFactory<>("password"));
+            
+           tAkun.setItems(dataAkunObservableList);
                                            
         }catch(SQLException e){
-            System.out.println(" Kode program salah");
+            System.out.println(e);
         }
     }
     
     
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        getData();
+    }   
     
 // =========================================================================================================================
 //     add account backend fitur
