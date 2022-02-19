@@ -186,6 +186,15 @@
                   </Button>
                </children>
             </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="359.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="tambahAkunBTN1" layoutX="-1.0" layoutY="15.0" mnemonicParsing="false" onAction="#laporanPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Data Laporan" textFill="WHITE" AnchorPane.topAnchor="15.0">
+                     <font>
+                        <Font name="Poppins Regular" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </left>

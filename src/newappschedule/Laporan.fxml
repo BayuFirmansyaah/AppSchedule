@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newappschedule.LaporanController">
+   <center>
+      <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="362.0" style="-fx-background-color: #DAEDD2;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="-6.0" layoutY="-22.0" prefHeight="768.0" prefWidth="1124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="840.0" layoutY="12.0" prefHeight="108.0" prefWidth="252.0" style="-fx-background-color: white;">
+                     <children>
+                        <AnchorPane layoutX="168.0" layoutY="15.0" prefHeight="78.0" prefWidth="78.0" styleClass="icon-lab" stylesheets="@../style/laporan.css" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                        <Text layoutX="2.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratorium" textAlignment="RIGHT" wrappingWidth="155.13671875" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font name="Poppins Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15 Ruang" textAlignment="RIGHT" wrappingWidth="158.13671875" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="80.0">
+                           <font>
+                              <Font name="Poppins Regular" size="28.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="563.0" layoutY="13.0" prefHeight="106.0" prefWidth="252.0" style="-fx-background-color: white;">
+                     <children>
+                        <AnchorPane layoutX="129.0" layoutY="12.0" prefHeight="76.0" prefWidth="77.0" styleClass="icon-kelas" stylesheets="@../style/laporan.css" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                        <Text layoutX="2.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kelas Siswa" textAlignment="RIGHT" wrappingWidth="155.13671875" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="97.86328125" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font name="Poppins Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="150 Kelas" textAlignment="RIGHT" wrappingWidth="159.13671875" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="90.0">
+                           <font>
+                              <Font name="Poppins Regular" size="28.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="288.0" layoutY="14.0" prefHeight="106.0" prefWidth="252.0" style="-fx-background-color: white;">
+                     <children>
+                        <AnchorPane layoutX="130.0" layoutY="3.0" prefHeight="76.0" prefWidth="76.0" styleClass="icon-jam" stylesheets="@../style/laporan.css" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                        <Text layoutX="163.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Jam Lab" textAlignment="RIGHT" wrappingWidth="158.13671875" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="88.86328125" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font name="Poppins Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="2.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="980 Jam" textAlignment="RIGHT" wrappingWidth="160.13671875" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="90.0">
+                           <font>
+                              <Font name="Poppins Regular" size="28.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="showDataJadwal" layoutX="35.0" layoutY="145.0" prefHeight="570.0" prefWidth="1074.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                     <children>
+                        <TableView layoutX="864.0" layoutY="17.0" prefHeight="568.0" prefWidth="1074.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="colKode" prefWidth="75.0" text="Kode" />
+                            <TableColumn fx:id="colJam" prefWidth="75.0" text="Jam" />
+                              <TableColumn fx:id="colHari" prefWidth="75.0" text="Hari" />
+                              <TableColumn fx:id="colKelas" prefWidth="309.6666259765625" text="Kelas" />
+                              <TableColumn fx:id="colNo" prefWidth="119.3333740234375" text="No" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children></AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="231.0" style="-fx-background-color: #3832FA;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="40.0" prefWidth="232.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Text fill="WHITE" layoutX="3.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pendjadwalan" textAlignment="CENTER" wrappingWidth="226.13671875" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="1.86328125" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font name="Poppins Regular" size="23.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="16.0" layoutY="79.0" prefHeight="39.0" prefWidth="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+               <children>
+                  <Button fx:id="informasiJadwal" layoutX="-2.0" layoutY="6.0" mnemonicParsing="false" onAction="#informasiPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Informasi Jadwal" textFill="WHITE" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font name="Poppins Regular" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="26.0" layoutY="151.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="TambahJadwal" layoutX="-2.0" layoutY="6.0" mnemonicParsing="false" onAction="#tambahPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Tambah Jadwal" textFill="WHITE" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font name="Poppins Regular" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="26.0" layoutY="343.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #05B23A;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+               <children>
+                  <Button fx:id="Keluar" layoutX="-3.0" layoutY="-2.0" mnemonicParsing="false" onAction="#keluarPage" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #05B23A;" text="Keluar" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins Regular" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="284.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="tambahAkunBTN" layoutX="-1.0" layoutY="16.0" mnemonicParsing="false" onAction="#tambahAkunPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Tambah Akun" textFill="WHITE" AnchorPane.topAnchor="16.0">
+                     <font>
+                        <Font name="Poppins Regular" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="214.0" prefHeight="39.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="ManageJadwal1" layoutX="-1.0" layoutY="16.0" mnemonicParsing="false" onAction="#managePage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Manage Jadwal" textFill="WHITE" AnchorPane.topAnchor="16.0">
+                     <font>
+                        <Font name="Poppins Regular" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Button layoutX="25.0" layoutY="368.0" mnemonicParsing="false" onAction="#laporanPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Data Laporan" textFill="WHITE" AnchorPane.topAnchor="368.0">
+               <font>
+                  <Font name="Poppins Regular" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

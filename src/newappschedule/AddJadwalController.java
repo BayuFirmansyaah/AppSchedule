@@ -375,4 +375,23 @@ public class AddJadwalController implements Initializable {
             e.printStackTrace();
         }
     }    
+    
+     @FXML
+    void laporanPage(ActionEvent event) {
+        try{
+            Parent parent = FXMLLoader.load(getClass().getResource("Laporan.fxml"));
+            Scene scene = new Scene(parent);
+            Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.setTitle("Tambah Akun");
+            window.setMaximized(true);
+            window.setMaximized(true);
+            window.centerOnScreen();
+            window.setFullScreen(true);
+            window.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    
 }
