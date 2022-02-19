@@ -5,9 +5,14 @@
  */
 package newappschedule;
 
+import database.KoneksiDatabase;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +20,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -23,14 +30,75 @@ import javafx.stage.Stage;
  * @author bayu firmansyah
  */
 public class LaporanController implements Initializable {
-
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        getData();
     }   
+    
+    
+      @FXML
+    private TableView<dataLaporan> showJadwal;
+
+      @FXML
+    private javafx.scene.control.TableColumn<dataLaporan, String> hari;
+      
+       @FXML
+    private javafx.scene.control.TableColumn<dataLaporan, String> no;
+
+    @FXML
+    private javafx.scene.control.TableColumn<dataLaporan, String> jam;
+
+    @FXML
+    private javafx.scene.control.TableColumn<dataLaporan, String> kelas;
+
+    @FXML
+    private javafx.scene.control.TableColumn<dataLaporan, String> kode;
+    
+    
+    ObservableList<dataLaporan> dataLaporanObservableList = FXCollections.observableArrayList();
+    
+    
+    //   ===================================================================================================================================== 
+//    get data
+    public void getData(){
+           try{
+            String r_hari,r_kelas,r_jam,r_kode;
+            
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal");
+            int number = 1;
+            
+            while(rst.next()){
+                String queryKelas = rst.getString("kelas");
+                String queryHari = rst.getString("hari");
+                String queryJam = rst.getString("jam");
+                String queryKode = rst.getString("kode");
+                int queryId = rst.getInt("id");
+                
+                dataLaporanObservableList.add(new dataLaporan(number,queryId,queryKelas,queryHari,queryJam,queryKode));
+                number+=1;
+            }
+            
+            hari.setCellValueFactory(new PropertyValueFactory<>("hari"));
+            no.setCellValueFactory(new PropertyValueFactory<>("number"));
+            kelas.setCellValueFactory(new PropertyValueFactory<>("kelas"));
+            jam.setCellValueFactory(new PropertyValueFactory<>("jam"));
+            kode.setCellValueFactory(new PropertyValueFactory<>("kode"));
+            
+            showJadwal.setItems(dataLaporanObservableList);
+                                           
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }
+    }
+    
+    
+//    ==============================================================================================================================
     
     
       @FXML
