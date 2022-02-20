@@ -97,6 +97,7 @@ public class TambahAkunController implements Initializable {
     
      
     public void getData(){
+        System.out.println("RUnnnnn");
         try{
            
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
@@ -126,7 +127,30 @@ public class TambahAkunController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        getData();
+          try{
+           
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
+            int number = 1;
+            
+            while(rst.next()){
+               String queryUsername = rst.getString("username");
+               String queryPassword = rst.getString("password");  
+               dataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
+               
+               number +=1;
+            }
+            
+            tno.setCellValueFactory(new PropertyValueFactory<>("number"));
+            tus.setCellValueFactory(new PropertyValueFactory<>("username"));
+            tpw.setCellValueFactory(new PropertyValueFactory<>("password"));
+            
+           tAkun.setItems(dataAkunObservableList);
+                                           
+        }catch(SQLException e){
+            System.out.println(e);
+        }
     }   
     
 // =========================================================================================================================
