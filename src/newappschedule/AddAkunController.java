@@ -79,10 +79,6 @@ public class AddAkunController implements Initializable {
                 
                 number+=1;
             }
-            
-               System.out.println("==============================================================");
-               System.out.println(getDataAkunObservableList);
-      
                 columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
                 columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
                 colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
