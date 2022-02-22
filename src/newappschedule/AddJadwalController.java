@@ -361,7 +361,7 @@ public class AddJadwalController implements Initializable {
       @FXML
     void tambahAkunPage(ActionEvent event) {
         try{
-            Parent parent = FXMLLoader.load(getClass().getResource("TambahAkun.fxml"));
+           Parent parent = FXMLLoader.load(getClass().getResource("AddAkun.fxml"));
             Scene scene = new Scene(parent);
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);

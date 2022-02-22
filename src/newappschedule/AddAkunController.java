@@ -26,6 +26,7 @@ import database.KoneksiDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -62,10 +63,16 @@ public class AddAkunController implements Initializable {
 
     @FXML
     private TextField t_username;
+    
+    @FXML
+    private TextField key;
 
     /**
      * Initializes the controller class.
      */
+    
+      Alert alert = new Alert(AlertType.INFORMATION);
+      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -119,6 +126,145 @@ public class AddAkunController implements Initializable {
         }
     }
     
+    
+    @FXML
+    void searchData(ActionEvent event) {
+        try{
+            
+            tableViewAkun.getItems().clear();
+            String keyword = key.getText().trim();
+            int lengthKey = keyword.length();
+        
+            String r_hari,r_kelas,r_jam,r_kode;
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            String sql;
+            if(lengthKey==0){
+                sql = "SELECT * FROM akun";
+            }else{
+                 sql = "SELECT * FROM akun WHERE username='"+keyword+"'";
+            }
+            java.sql.ResultSet rst = stm.executeQuery(sql);
+            int number = 1;
+            
+            while(rst.next()){
+                int id = rst.getInt("id");
+                String Username = rst.getString("username");
+                String Password = rst.getString("password");
+                getDataAkunObservableList.add(new getDataAkun(id,number,Username,Password));
+                
+                number+=1;
+            }
+                columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+                columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
+                colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+
+                tableViewAkun.setItems(getDataAkunObservableList);
+                
+               
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }  
+    }
+    
+    
+     @FXML
+    void perbaruiData(ActionEvent event) {
+          try{
+//          get data
+            String _username = t_username.getText();
+            String _password = t_password.getText();
+ 
+            
+            String sql = "UPDATE akun SET username='"+_username+"',password='"+_password+"' WHERE id='"+this.id_data+"'";
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            
+            alert.setTitle("Berhasil!!");
+            alert.setHeaderText(null);
+            alert.setContentText("Berhasil Memperbarui Data");
+            alert.showAndWait();
+            
+            t_username.setText("");
+            t_password.setText("");
+            t_rpassword.setText("");
+                    
+            tableViewAkun.getItems().clear();
+            this.getData();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    void tambahData(ActionEvent event) {
+         String textUsername = t_username.getText().trim();
+           String textPassword = t_password.getText().trim();
+           String textRPassword = t_rpassword.getText().trim();
+           
+           
+           if(textPassword.equals(textRPassword)){
+                try{
+                    int id;
+                    String sql = "INSERT INTO akun VALUES(id,'"+textUsername+"','"+textRPassword+"')";
+                    java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+                    java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                    pst.execute();
+    //            alert
+                    alert.setTitle("Berhasil!!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Berhasil Menambahkan Data");
+                    alert.showAndWait();
+
+    //            pengkosongan data akun
+                    t_username.setText("");
+                    t_password.setText("");
+                    t_rpassword.setText("");
+
+                    tableViewAkun.getItems().clear();
+                    this.getData();
+
+                }catch(SQLException e){
+                    alert.setTitle("Warning!!");
+                    alert.setHeaderText(null);
+                    alert.setContentText(""+e);
+                    alert.showAndWait();
+                }
+           }else{
+                alert.setTitle("Warning!!");
+                alert.setHeaderText(null);
+                alert.setContentText("Password doesn't Match!!");
+                alert.showAndWait();
+           }
+    }
+    
+    @FXML
+    void hapusData(ActionEvent event) {
+           try{
+            String sql = "DELETE FROM akun WHERE id="+this.id_data; 
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            
+            alert.setTitle("Berhasil!!");
+            alert.setHeaderText(null);
+            alert.setContentText("Berhasil Menghapus Data");
+            alert.showAndWait();
+            
+            t_username.setText("");
+            t_password.setText("");
+            t_rpassword.setText("");
+                    
+            tableViewAkun.getItems().clear();
+            this.getData();
+        }catch(SQLException e){
+            System.out.print(e);
+        }
+    }
+
+   
+  
    
   
     
@@ -238,7 +384,7 @@ public class AddAkunController implements Initializable {
       @FXML
     void tambahAkunPage(ActionEvent event) {
         try{
-            Parent parent = FXMLLoader.load(getClass().getResource("TambahAkun.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("AddAkun.fxml"));
             Scene scene = new Scene(parent);
             Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);

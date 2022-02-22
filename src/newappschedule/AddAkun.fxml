@@ -86,12 +86,12 @@
                               <Font name="Poppins Regular" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="tambahDataBtn1" layoutX="70.0" layoutY="358.0" mnemonicParsing="false" onAction="#tambahData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #2990EB;" text="Perbarui Data" textFill="WHITE" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <Button fx:id="tambahDataBtn1" layoutX="70.0" layoutY="358.0" mnemonicParsing="false" onAction="#perbaruiData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #2990EB;" text="Perbarui Data" textFill="WHITE" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="tambahDataBtn11" layoutX="68.0" layoutY="287.0" mnemonicParsing="false" onAction="#perbaruiData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <Button fx:id="tambahDataBtn11" layoutX="68.0" layoutY="287.0" mnemonicParsing="false" onAction="#tambahData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="16.0" />
                            </font>
@@ -114,7 +114,7 @@
                   <Font name="Poppins Regular" size="18.0" />
                </font>
             </TextField>
-            <Button fx:id="cari" layoutX="25.0" layoutY="20.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #303D7A;" text="Cari" textFill="WHITE">
+            <Button fx:id="cari" layoutX="25.0" layoutY="20.0" mnemonicParsing="false" onAction="#searchData" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #303D7A;" text="Cari" textFill="WHITE">
                <font>
                   <Font name="Poppins Regular" size="16.0" />
                </font>
