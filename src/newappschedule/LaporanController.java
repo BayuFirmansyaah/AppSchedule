@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -34,9 +35,27 @@ public class LaporanController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    @FXML
+    private Text counterlab;
+    
+     @FXML
+    private Text counterKelas;
+     
+       @FXML
+    private Text countingJam;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         getData();
+        String countLab = counter("SELECT DISTINCT kode FROM jadwal");
+        counterlab.setText(countLab);
+        
+        String countKelas = counter("SELECT DISTINCT kelas FROM jadwal ORDER BY kelas");
+        counterKelas.setText(countKelas);
+        
+        String countJam = counterJam();
+        countingJam.setText(countJam);
     }   
     
     
@@ -96,6 +115,46 @@ public class LaporanController implements Initializable {
             System.out.println(" Kode program salah");
         }
     }
+    
+    
+//    count data
+    public String counter(String sql){
+        int counter = 0;
+         
+        try{
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet rst = stm.executeQuery(sql);
+            
+            while(rst.next()){
+                counter+=1;
+            }
+        }catch(SQLException e){
+            System.out.println("Errro : "+e);
+        }
+         
+        return ""+counter;
+    }
+    
+    
+     public String counterJam(){
+        int counter = 0;
+         
+        try{
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal");
+            while(rst.next()){
+                counter+=Integer.parseInt(rst.getString("jam"));
+            }
+        }catch(SQLException e){
+            System.out.println("Errro : "+e);
+        }
+         
+        return ""+counter;
+    }
+    
+    
     
     
 //    ==============================================================================================================================

@@ -22,7 +22,7 @@
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
                         </Text>
-                        <Text layoutX="1.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15" textAlignment="RIGHT" wrappingWidth="158.13671875" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="80.0">
+                        <Text fx:id="counterlab" layoutX="1.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="158.13671875" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="80.0">
                            <font>
                               <Font name="Poppins Regular" size="28.0" />
                            </font>
@@ -37,7 +37,7 @@
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
                         </Text>
-                        <Text layoutX="1.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="150 " textAlignment="RIGHT" wrappingWidth="159.13671875" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="90.0">
+                        <Text fx:id="counterKelas" layoutX="1.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="159.13671875" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="90.0">
                            <font>
                               <Font name="Poppins Regular" size="28.0" />
                            </font>
@@ -52,7 +52,7 @@
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
                         </Text>
-                        <Text layoutX="2.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="980 " textAlignment="RIGHT" wrappingWidth="160.13671875" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="90.0">
+                        <Text fx:id="countingJam" layoutX="2.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="980 " textAlignment="RIGHT" wrappingWidth="160.13671875" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="90.0">
                            <font>
                               <Font name="Poppins Regular" size="28.0" />
                            </font>
