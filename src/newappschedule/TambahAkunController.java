@@ -60,10 +60,7 @@ public class TambahAkunController implements Initializable {
     @FXML
     private Button dashboardJadwal;
     
-    @FXML
-    private TableView<getDataAkun> tAkun;
 
-    
      @FXML
     private Button tambahAkunBTN;
      
@@ -76,24 +73,33 @@ public class TambahAkunController implements Initializable {
     @FXML
     private TextField r_password;
     
-     @FXML
-    private TableColumn<getDataAkun, String> tno;
-
-    @FXML
-    private TableColumn<getDataAkun, String> tpw;
-
-    @FXML
-    private TableColumn<getDataAkun, String> tus;
-
-    
+     
     @FXML
     private TextField username;
+    
+    
+//         @FXML
+//    private TableView<getDataAkun> tableViewJadwal;
+//      
+//       @FXML
+//    private TableColumn<getDataAkun, String> columnHari;
+//
+//    @FXML
+//    private TableColumn<getDataAkun, String> columnKelas;
+//
+//    @FXML
+//    private TableColumn<getDataAkun, String> columnNumber;  
+  
+     ObservableList<getDataAkun> dataAkunObservableList = FXCollections.observableArrayList();
 //     =====================================================================================================================
       Alert alert = new Alert(Alert.AlertType.INFORMATION);
-   
-   
+     @Override
+    public void initialize(URL url, ResourceBundle rb) {
+//        tableViewJadwal.getItems().clear();
+//         tableViewJadwal.setItems(dataAkunObservableList);
+         getData();
+    }
     
-    ObservableList<getDataAkun> dataAkunObservableList = FXCollections.observableArrayList();
     
      
     public void getData(){
@@ -102,22 +108,22 @@ public class TambahAkunController implements Initializable {
            
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
+            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal");
             int number = 1;
             
             while(rst.next()){
-               String queryUsername = rst.getString("username");
-               String queryPassword = rst.getString("password");  
+               String queryUsername = rst.getString("kelas");
+               String queryPassword = rst.getString("kode");  
                dataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
                
                number +=1;
             }
             
-            tno.setCellValueFactory(new PropertyValueFactory<>("number"));
-            tus.setCellValueFactory(new PropertyValueFactory<>("username"));
-            tpw.setCellValueFactory(new PropertyValueFactory<>("password"));
-            
-           tAkun.setItems(dataAkunObservableList);
+//            columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
+//            columnHari.setCellValueFactory(new PropertyValueFactory<>("username"));
+//            columnKelas.setCellValueFactory(new PropertyValueFactory<>("password"));
+//            
+//           tableViewJadwal.setItems(dataAkunObservableList);
                                            
         }catch(SQLException e){
             System.out.println(e);
@@ -125,33 +131,6 @@ public class TambahAkunController implements Initializable {
     }
     
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-          try{
-           
-            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
-            java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM akun");
-            int number = 1;
-            
-            while(rst.next()){
-               String queryUsername = rst.getString("username");
-               String queryPassword = rst.getString("password");  
-               dataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
-               
-               number +=1;
-            }
-            
-            tno.setCellValueFactory(new PropertyValueFactory<>("number"));
-            tus.setCellValueFactory(new PropertyValueFactory<>("username"));
-            tpw.setCellValueFactory(new PropertyValueFactory<>("password"));
-            
-           tAkun.setItems(dataAkunObservableList);
-                                           
-        }catch(SQLException e){
-            System.out.println(e);
-        }
-    }   
     
 // =========================================================================================================================
 //     add account backend fitur

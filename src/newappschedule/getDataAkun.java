@@ -10,41 +10,39 @@ package newappschedule;
  * @author bayu firmansyah
  */
 public class getDataAkun {
-    String username,password;
-    int number;
+   String username,password;
+   int no;
    
-   getDataAkun(int number,String username,String password){
-       this.number = number;
+   getDataAkun(int no, String username,String password){
+       System.out.println(username);
+       this.no = no;
        this.username = username;
        this.password = password;
    }
    
-   public int getNumber(){
-       return number;
+   public int getNo(){
+       return no;
+   }
+   
+   public void setNo(int no){
+       this.no = no; 
    }
    
    public String getUsername(){
        return username;
    }
    
-   public String getPassword(){
+   public void setUsername(String username){
+       this.username = username; 
+   }
+
+
+    public String getPassword(){
        return password;
    }
    
-   
-   public void setNumber(int number){
-       this.number = number;
-   }
-   
-   public void setUsername(String username){
-       this.username = username;
-   }
-   
    public void setPassword(String password){
-       this.password = password;
+       this.password = password; 
    }
-   
-   
-   
     
 }
