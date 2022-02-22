@@ -52,6 +52,16 @@ public class AddAkunController implements Initializable {
     private TableColumn<getDataAkun, String> columnUsername;
     
      ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
+     
+     
+       @FXML
+    private TextField t_password;
+
+    @FXML
+    private TextField t_rpassword;
+
+    @FXML
+    private TextField t_username;
 
     /**
      * Initializes the controller class.
@@ -61,6 +71,8 @@ public class AddAkunController implements Initializable {
         // TODO
         this.getData();
     }    
+    
+    int id_data;
     
     
     //    get data
@@ -73,9 +85,10 @@ public class AddAkunController implements Initializable {
             int number = 1;
             
             while(rst.next()){
+                int id = rst.getInt("id");
                 String Username = rst.getString("username");
                 String Password = rst.getString("password");
-                getDataAkunObservableList.add(new getDataAkun(number,Username,Password));
+                getDataAkunObservableList.add(new getDataAkun(id,number,Username,Password));
                 
                 number+=1;
             }
@@ -84,12 +97,26 @@ public class AddAkunController implements Initializable {
                 colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
 
                 tableViewAkun.setItems(getDataAkunObservableList);
+                
+                tableViewAkun.setOnMouseClicked(event->{
+                    this.events();
+                });
                
         }catch(SQLException e){
             System.out.println(" Kode program salah");
+        }  
+    }
+    
+    
+    //    get data when row clicked ==============================================================================================================
+    private void events(){
+        for(getDataAkun getData: tableViewAkun.getSelectionModel().getSelectedItems()){
+            for(int i=0;i<1;i++){
+                t_username.setText(getData.getUsername());
+                t_password.setText(getData.getPassword());
+                this.id_data = getData.getId();
+            }
         }
-           
-      
     }
     
    

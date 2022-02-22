@@ -33,7 +33,7 @@
                      <children>
                         <AnchorPane layoutY="3.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                            <children>
-                              <Text fill="WHITE" layoutX="10.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Kelas" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <Text fill="WHITE" layoutX="10.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <font>
                                     <Font name="Poppins Regular" size="20.0" />
                                  </font>
@@ -42,7 +42,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="46.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField fx:id="nama_kelas" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="t_username" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -51,7 +51,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="84.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <Text fill="WHITE" layoutX="8.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hari Penggunaan" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="12.86328125" AnchorPane.topAnchor="17.0">
+                              <Text fill="WHITE" layoutX="8.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="12.86328125" AnchorPane.topAnchor="17.0">
                                  <font>
                                     <Font name="Poppins Regular" size="20.0" />
                                  </font>
@@ -60,7 +60,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="126.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField fx:id="hari_penggunaan" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="t_password" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -69,29 +69,29 @@
                         </AnchorPane>
                         <AnchorPane layoutX="8.0" layoutY="174.0" prefHeight="38.0" prefWidth="236.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="12.0">
                            <children>
-                              <Text fill="WHITE" layoutX="9.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lama Penggunaan" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.86328125">
+                              <Text fill="WHITE" layoutX="9.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat Password" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.86328125">
                                  <font>
                                     <Font name="Poppins Regular" size="20.0" />
                                  </font>
                               </Text>
                            </children>
                         </AnchorPane>
-                        <TextField fx:id="lama_penggunaan" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <TextField fx:id="t_rpassword" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="kode_laboratorium" layoutX="20.0" layoutY="287.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <Button fx:id="tambahDataBtn" layoutX="32.0" layoutY="426.0" mnemonicParsing="false" onAction="#hapusData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #F02B1E;" text="Hapus Data" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
-                              <Font name="Poppins Regular" size="18.0" />
+                              <Font name="Poppins Regular" size="16.0" />
                            </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="20.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kode Laboratorium" textAlignment="RIGHT" wrappingWidth="225.13671875">
+                        </Button>
+                        <Button fx:id="tambahDataBtn1" layoutX="70.0" layoutY="358.0" mnemonicParsing="false" onAction="#tambahData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #2990EB;" text="Perbarui Data" textFill="WHITE" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
-                              <Font name="Poppins Regular" size="20.0" />
+                              <Font name="Poppins Regular" size="16.0" />
                            </font>
-                        </Text>
-                        <Button fx:id="tambahDataBtn" layoutX="23.0" layoutY="343.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        </Button>
+                        <Button fx:id="tambahDataBtn11" layoutX="68.0" layoutY="287.0" mnemonicParsing="false" onAction="#perbaruiData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="16.0" />
                            </font>

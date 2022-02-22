@@ -11,12 +11,21 @@ package newappschedule;
  */
 public class getDataAkun {
    String username,password;
-   int no;
+   int no,id;
    
-   getDataAkun(int no, String username,String password){
+   getDataAkun(int id,int no, String username,String password){
+       this.id = id;
        this.no = no;
        this.username = username;
        this.password = password;
+   }
+   
+   public int getId(){
+       return id;
+   }
+   
+   public void setId(int id){
+       this.id = id; 
    }
    
    public int getNo(){
