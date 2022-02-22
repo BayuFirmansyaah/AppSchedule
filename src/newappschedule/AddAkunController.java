@@ -67,8 +67,7 @@ public class AddAkunController implements Initializable {
             while(rst.next()){
                 String Username = rst.getString("username");
                 String Password = rst.getString("password");
-                System.out.println(Username);
-                
+                System.out.println(Username+" || "+Password);
 //                getDataAkunObservableList.add(new getDataAkun(number,Username,Password));
                 
                 number+=1;
