@@ -31,17 +31,17 @@ import javafx.stage.Stage;
  */
 public class AddAkunController implements Initializable {
     
-//    @FXML
-//    private TableView<getDataAkun> tableViewAkun;
-////    
+    @FXML
+    private TableView<getDataAkun> tableViewAkun;
+    
 //     @FXML
 //    private TableColumn<getDataAkun, String> colPassword;
-////
-//    @FXML
-//    private TableColumn<getDataAkun, String> columnNumber;
-////
-//    @FXML
-//    private TableColumn<getDataAkun, String> columnUsername;
+
+    @FXML
+    private TableColumn<getDataAkun, String> columnNumber;
+
+    @FXML
+    private TableColumn<getDataAkun, String> columnUsername;
     
      ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
 
@@ -74,12 +74,12 @@ public class AddAkunController implements Initializable {
             
                System.out.println("==============================================================");
                System.out.println(getDataAkunObservableList);
-            
-//            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-//            columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
+
+                columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+                columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
 //            colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
 //            
-//            tableViewAkun.setItems(getDataAkunObservableList);
+                tableViewAkun.setItems(getDataAkunObservableList);
                                            
         }catch(SQLException e){
             System.out.println(" Kode program salah");
