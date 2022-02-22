@@ -21,6 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -44,6 +45,9 @@ public class LaporanController implements Initializable {
      
        @FXML
     private Text countingJam;
+       
+       @FXML
+    private TextField keyword;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -90,6 +94,49 @@ public class LaporanController implements Initializable {
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal");
+            int number = 1;
+            
+            while(rst.next()){
+                String queryKelas = rst.getString("kelas");
+                String queryHari = rst.getString("hari");
+                String queryJam = rst.getString("jam");
+                String queryKode = rst.getString("kode");
+                int queryId = rst.getInt("id");
+                
+                dataLaporanObservableList.add(new dataLaporan(number,queryId,queryKelas,queryHari,queryJam,queryKode));
+                number+=1;
+            }
+            
+            hari.setCellValueFactory(new PropertyValueFactory<>("hari"));
+            no.setCellValueFactory(new PropertyValueFactory<>("number"));
+            kelas.setCellValueFactory(new PropertyValueFactory<>("kelas"));
+            jam.setCellValueFactory(new PropertyValueFactory<>("jam"));
+            kode.setCellValueFactory(new PropertyValueFactory<>("kode"));
+            
+            showJadwal.setItems(dataLaporanObservableList);
+                                           
+        }catch(SQLException e){
+            System.out.println(" Kode program salah");
+        }
+    }
+    
+     public void searchData(){
+            showJadwal.getItems().clear();
+            String key= keyword.getText().trim();
+            int keyLength = key.length();
+            
+           try{
+            String r_hari,r_kelas,r_jam,r_kode;
+            
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+             String sql;
+            if(keyLength == 0){
+                sql = "SELECT * FROM jadwal";
+            }else{
+                 sql = "SELECT * FROM jadwal WHERE kode LIKE '%"+key+"%' OR kelas LIKE '%"+key+"%' OR jam LIKE '%"+key+"%' OR hari LIKE '%"+key+"%'";
+            }
+            java.sql.ResultSet rst = stm.executeQuery(sql);
             int number = 1;
             
             while(rst.next()){
