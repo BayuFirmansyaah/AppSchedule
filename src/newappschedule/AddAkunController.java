@@ -31,17 +31,17 @@ import javafx.stage.Stage;
  */
 public class AddAkunController implements Initializable {
     
-    @FXML
-    private TableView<getDataAkun> tableViewAkun;
-//    
-     @FXML
-    private TableColumn<getDataAkun, String> colPassword;
-//
-    @FXML
-    private TableColumn<getDataAkun, String> columnNumber;
-//
-    @FXML
-    private TableColumn<getDataAkun, String> columnUsername;
+//    @FXML
+//    private TableView<getDataAkun> tableViewAkun;
+////    
+//     @FXML
+//    private TableColumn<getDataAkun, String> colPassword;
+////
+//    @FXML
+//    private TableColumn<getDataAkun, String> columnNumber;
+////
+//    @FXML
+//    private TableColumn<getDataAkun, String> columnUsername;
     
      ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
 
@@ -67,17 +67,16 @@ public class AddAkunController implements Initializable {
             while(rst.next()){
                 String Username = rst.getString("username");
                 String Password = rst.getString("password");
-                System.out.println(Username+" || "+Password);
                 getDataAkunObservableList.add(new getDataAkun(number,Username,Password));
                 
                 number+=1;
             }
             
-            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-            columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
-            colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
-            
-            tableViewAkun.setItems(getDataAkunObservableList);
+//            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+//            columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
+//            colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+//            
+//            tableViewAkun.setItems(getDataAkunObservableList);
                                            
         }catch(SQLException e){
             System.out.println(" Kode program salah");

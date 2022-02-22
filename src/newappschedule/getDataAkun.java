@@ -14,7 +14,7 @@ public class getDataAkun {
    int no;
    
    getDataAkun(int no, String username,String password){
-       System.out.println(username);
+       System.out.println(username+" || "+password);
        this.no = no;
        this.username = username;
        this.password = password;
