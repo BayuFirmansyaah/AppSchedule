@@ -34,8 +34,8 @@ public class AddAkunController implements Initializable {
     @FXML
     private TableView<getDataAkun> tableViewAkun;
     
-//     @FXML
-//    private TableColumn<getDataAkun, String> colPassword;
+     @FXML
+    private TableColumn<getDataAkun, String> colPassword;
 
     @FXML
     private TableColumn<getDataAkun, String> columnNumber;
@@ -74,17 +74,24 @@ public class AddAkunController implements Initializable {
             
                System.out.println("==============================================================");
                System.out.println(getDataAkunObservableList);
-
-                columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
-                columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
-//            colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
-//            
-                tableViewAkun.setItems(getDataAkunObservableList);
                                            
         }catch(SQLException e){
             System.out.println(" Kode program salah");
         }
+           
+           this.show();
     }
+    
+    
+    public void show(){
+        columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
+        columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
+        colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+            
+        tableViewAkun.setItems(getDataAkunObservableList);
+    }
+    
+    
     
     
     
