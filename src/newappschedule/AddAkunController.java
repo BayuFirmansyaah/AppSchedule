@@ -11,6 +11,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,162 +20,75 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-import database.KoneksiDatabase;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 /**
  * FXML Controller class
  *
  * @author bayu firmansyah
  */
-public class TambahAkunController implements Initializable {
+public class AddAkunController implements Initializable {
+    
+//    @FXML
+//    private TableView<getDataAkun> tableViewAkun;
+//    
+//     @FXML
+//    private TableColumn<getDataAkun, String> colPassword;
+//
+//    @FXML
+//    private TableColumn<getDataAkun, String> columnNumber;
+//
+//    @FXML
+//    private TableColumn<getDataAkun, String> columnUsername;
+    
+//     ObservableList<getDataAkun> getDataAkunObservableList = FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
      */
-    
-    
-//    ======================================================================================================================
-        
-     @FXML 
-    private Button informasiJadwal;
-     
-     @FXML
-    private Button Keluar;
-     
-     @FXML
-    private Button TambahJadwal;
-     
-     @FXML
-    private Button ManageJadwal;
-     
-     @FXML
-    private Button Login;
-     
-    @FXML
-    private Button dashboardJadwal;
-    
-
-     @FXML
-    private Button tambahAkunBTN;
-     
-      @FXML
-    private Button b_tambahData;
-      
-       @FXML
-    private TextField password;
-
-    @FXML
-    private TextField r_password;
-    
-     
-    @FXML
-    private TextField username;
-    
-    
-//         @FXML
-//    private TableView<getDataAkun> tableViewJadwal;
-//      
-//       @FXML
-//    private TableColumn<getDataAkun, String> columnHari;
-//
-//    @FXML
-//    private TableColumn<getDataAkun, String> columnKelas;
-//
-//    @FXML
-//    private TableColumn<getDataAkun, String> columnNumber;  
-  
-     ObservableList<getDataAkun> dataAkunObservableList = FXCollections.observableArrayList();
-//     =====================================================================================================================
-      Alert alert = new Alert(Alert.AlertType.INFORMATION);
-     @Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        tableViewJadwal.getItems().clear();
-//         tableViewJadwal.setItems(dataAkunObservableList);
-         getData();
-    }
+        // TODO
+        this.getData();
+    }    
     
     
-     
+    //    get data
     public void getData(){
-        System.out.println("RUnnnnn");
-        try{
-           
+           try{
+            
             java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
             java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet rst = stm.executeQuery("SELECT * FROM jadwal");
+            java.sql.ResultSet rst = stm.executeQuery("select * from akun");
             int number = 1;
             
             while(rst.next()){
-               String queryUsername = rst.getString("kelas");
-               String queryPassword = rst.getString("kode");  
-               dataAkunObservableList.add(new getDataAkun(number,queryUsername,queryPassword));
-               
-               number +=1;
+                String Username = rst.getString("username");
+                String Password = rst.getString("password");
+                System.out.println(Username);
+                
+//                getDataAkunObservableList.add(new getDataAkun(number,Username,Password));
+                
+                number+=1;
             }
             
+//            columnUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
 //            columnNumber.setCellValueFactory(new PropertyValueFactory<>("no"));
-//            columnHari.setCellValueFactory(new PropertyValueFactory<>("username"));
-//            columnKelas.setCellValueFactory(new PropertyValueFactory<>("password"));
+//            colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
 //            
-//           tableViewJadwal.setItems(dataAkunObservableList);
+//            tableViewAkun.setItems(getDataAkunObservableList);
                                            
         }catch(SQLException e){
-            System.out.println(e);
+            System.out.println(" Kode program salah");
         }
     }
     
     
     
-// =========================================================================================================================
-//     add account backend fitur
-    @FXML
-    void insertData(ActionEvent event) {
-           String textUsername = username.getText().trim();
-           String textPassword = password.getText().trim();
-           String textRPassword = r_password.getText().trim();
-           
-           
-           if(textPassword.equals(textRPassword)){
-               try{
-                int id;
-                String sql = "INSERT INTO akun VALUES(id,'"+textUsername+"','"+textRPassword+"')";
-                java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
-                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-                pst.execute();
-//            alert
-                alert.setTitle("Berhasil!!");
-                alert.setHeaderText(null);
-                alert.setContentText("Berhasil Menambahkan Data");
-                alert.showAndWait();
-                
-//            pengkosongan data akun
-                username.setText("");
-                password.setText("");
-                r_password.setText("");
-
-            }catch(SQLException e){
-                //            alert
-                JOptionPane.showMessageDialog(null, e);
-
-            }
-           }else{
-//               JOptionPane.showMessageDialog(null, "Password doesn't Match!!");
-                alert.setTitle("Warning!!");
-                alert.setHeaderText(null);
-                alert.setContentText("Password doesn't Match!!");
-                alert.showAndWait();
-           }
-
-    }
-
+    
+    //     change page  =========================================================================================================================
     @FXML
     void informasiPage(ActionEvent event) {
         try{
@@ -297,7 +212,7 @@ public class TambahAkunController implements Initializable {
         }catch(IOException e){
             e.printStackTrace();
         }
-    }
+    }    
     
      @FXML
     void laporanPage(ActionEvent event) {

@@ -19,16 +19,17 @@ import javafx.stage.Stage;
  *
  * @author bayu firmansyah
  */
-public class TambahAkun extends Application {
+public class AddAkun extends Application {
     
-    @Override
+      @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("TambahAkunNew.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AddAkun.fxml"));
+        
         Scene scene = new Scene(root, 800, 500);
-        stage.setTitle("Tambah Akun");
+        stage.setTitle("Add Akun ");
         stage.centerOnScreen();
-//        stage.setMaximized(true);
-//        stage.setFullScreen(true);
+        stage.setMaximized(true);
+        stage.setFullScreen(true);
         stage.centerOnScreen();
         stage.setScene(scene);
         stage.show();

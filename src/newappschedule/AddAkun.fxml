@@ -9,18 +9,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newappschedule.TambahAkunController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newappschedule.AddAkunController">
    <center>
-      <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="362.0" style="-fx-background-color: #DAEDD2;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="keyword" nodeOrientation="RIGHT_TO_LEFT" prefHeight="400.0" prefWidth="362.0" style="-fx-background-color: #DAEDD2;" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane layoutX="-40.0" layoutY="56.0" prefHeight="330.0" prefWidth="316.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0">
                <children>
                   <AnchorPane layoutX="33.0" layoutY="7.0" prefHeight="397.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="263.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView fx:id="tableViewJadwal" layoutX="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tableViewAkun" layoutX="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                              <TableColumn fx:id="columnHari" prefWidth="75.0" text="Password" />
-                              <TableColumn fx:id="columnKelas" prefWidth="75.0" text="Username" />
+                              <TableColumn fx:id="colPassword" prefWidth="75.0" text="Password" />
+                              <TableColumn fx:id="columnUsername" prefWidth="75.0" text="Username" />
                               <TableColumn fx:id="columnNumber" prefWidth="75.0" text="No" />
                           </columns>
                            <columnResizePolicy>
@@ -33,7 +33,7 @@
                      <children>
                         <AnchorPane layoutY="3.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                            <children>
-                              <Text fill="WHITE" layoutX="10.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <Text fill="WHITE" layoutX="10.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Kelas" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <font>
                                     <Font name="Poppins Regular" size="20.0" />
                                  </font>
@@ -42,7 +42,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="46.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField fx:id="kelas" alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="nama_kelas" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -51,7 +51,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="84.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <Text fill="WHITE" layoutX="8.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="12.86328125" AnchorPane.topAnchor="17.0">
+                              <Text fill="WHITE" layoutX="8.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hari Penggunaan" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="12.86328125" AnchorPane.topAnchor="17.0">
                                  <font>
                                     <Font name="Poppins Regular" size="20.0" />
                                  </font>
@@ -60,7 +60,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="126.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <TextField fx:id="hari" alignment="TOP_RIGHT" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
+                              <TextField fx:id="hari_penggunaan" layoutX="11.0" layoutY="7.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0">
                                  <font>
                                     <Font name="Poppins Regular" size="18.0" />
                                  </font>
@@ -69,29 +69,29 @@
                         </AnchorPane>
                         <AnchorPane layoutX="8.0" layoutY="174.0" prefHeight="38.0" prefWidth="236.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="12.0">
                            <children>
-                              <Text fill="WHITE" layoutX="9.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat Password" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.86328125">
+                              <Text fill="WHITE" layoutX="9.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lama Penggunaan" textAlignment="RIGHT" wrappingWidth="225.13671875" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.86328125">
                                  <font>
                                     <Font name="Poppins Regular" size="20.0" />
                                  </font>
                               </Text>
                            </children>
                         </AnchorPane>
-                        <TextField fx:id="lama" alignment="TOP_RIGHT" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <TextField fx:id="lama_penggunaan" layoutX="13.0" layoutY="212.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="18.0" />
                            </font>
                         </TextField>
-                        <Button layoutX="23.0" layoutY="343.0" mnemonicParsing="false" onAction="#updateData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #2990EB;" text="Perbarui Akun" textFill="WHITE" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        <TextField fx:id="kode_laboratorium" layoutX="20.0" layoutY="287.0" prefHeight="40.0" prefWidth="209.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
-                              <Font name="Poppins Regular" size="16.0" />
+                              <Font name="Poppins Regular" size="18.0" />
                            </font>
-                        </Button>
-                        <Button layoutX="21.0" layoutY="402.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #F02B1E;" text="Hapus Akun" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        </TextField>
+                        <Text fill="WHITE" layoutX="20.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kode Laboratorium" textAlignment="RIGHT" wrappingWidth="225.13671875">
                            <font>
-                              <Font name="Poppins Regular" size="16.0" />
+                              <Font name="Poppins Regular" size="20.0" />
                            </font>
-                        </Button>
-                        <Button layoutX="60.0" layoutY="287.0" mnemonicParsing="false" onAction="#updateData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Akun" textFill="WHITE" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                        </Text>
+                        <Button fx:id="tambahDataBtn" layoutX="23.0" layoutY="343.0" mnemonicParsing="false" onAction="#addData" prefHeight="40.0" prefWidth="226.0" style="-fx-background-color: #05B23A;" text="Tambah Data" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                            <font>
                               <Font name="Poppins Regular" size="16.0" />
                            </font>
@@ -102,19 +102,19 @@
             </AnchorPane>
             <AnchorPane layoutX="327.0" layoutY="14.0" prefHeight="52.0" prefWidth="200.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                <children>
-                  <Text layoutX="143.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tambah Akun" textAlignment="RIGHT" wrappingWidth="334.13671875" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Text layoutX="143.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tambah Jadwal" textAlignment="RIGHT" wrappingWidth="334.13671875" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="Poppins Regular" size="26.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <TextField fx:id="keyword" alignment="TOP_RIGHT" layoutX="128.0" layoutY="26.0" prefHeight="40.0" prefWidth="157.0" AnchorPane.leftAnchor="128.0" AnchorPane.topAnchor="20.0">
+            <TextField fx:id="key" alignment="TOP_RIGHT" layoutX="121.0" layoutY="26.0" prefHeight="40.0" prefWidth="164.0" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="Poppins Regular" size="18.0" />
                </font>
             </TextField>
-            <Button layoutX="28.0" layoutY="21.0" mnemonicParsing="false" onAction="#searchData" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #303D7A;" text="Cari" textFill="WHITE">
+            <Button fx:id="cari" layoutX="25.0" layoutY="20.0" mnemonicParsing="false" onAction="#searchData" prefHeight="36.0" prefWidth="85.0" style="-fx-background-color: #303D7A;" text="Cari" textFill="WHITE">
                <font>
                   <Font name="Poppins Regular" size="16.0" />
                </font>
@@ -170,18 +170,18 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="25.0" layoutY="290.0" prefHeight="39.0" prefWidth="200.0">
+            <AnchorPane layoutX="25.0" layoutY="288.0" prefHeight="39.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="tambahAkunBTN" layoutX="-1.0" layoutY="15.0" mnemonicParsing="false" onAction="#tambahAkunPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Tambah Akun" textFill="WHITE" AnchorPane.topAnchor="15.0">
+                  <Button fx:id="ManageJadwal1" layoutX="-1.0" layoutY="16.0" mnemonicParsing="false" onAction="#managePage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Tambah Akun" textFill="WHITE" AnchorPane.topAnchor="16.0">
                      <font>
                         <Font name="Poppins Regular" size="15.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="25.0" layoutY="359.0" prefHeight="39.0" prefWidth="200.0">
+            <AnchorPane layoutX="25.0" layoutY="357.0" prefHeight="39.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="tambahAkunBTN1" layoutX="-1.0" layoutY="15.0" mnemonicParsing="false" onAction="#laporanPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Data Laporan" textFill="WHITE" AnchorPane.topAnchor="15.0">
+                  <Button fx:id="ManageJadwal11" layoutX="-1.0" layoutY="16.0" mnemonicParsing="false" onAction="#laporanPage" prefHeight="39.0" prefWidth="203.0" style="-fx-background-color: #2990EB;" text="Data Laporan" textFill="WHITE" AnchorPane.topAnchor="16.0">
                      <font>
                         <Font name="Poppins Regular" size="15.0" />
                      </font>
