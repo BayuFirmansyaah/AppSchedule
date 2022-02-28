@@ -102,7 +102,7 @@
             </AnchorPane>
             <AnchorPane layoutX="327.0" layoutY="14.0" prefHeight="52.0" prefWidth="200.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                <children>
-                  <Text layoutX="143.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tambah Jadwal" textAlignment="RIGHT" wrappingWidth="334.13671875" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Text layoutX="143.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tambah Akun" textAlignment="RIGHT" wrappingWidth="334.13671875" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="Poppins Regular" size="26.0" />
                      </font>

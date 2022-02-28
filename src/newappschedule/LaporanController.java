@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -48,6 +53,9 @@ public class LaporanController implements Initializable {
        
        @FXML
     private TextField keyword;
+       
+       @FXML
+    private ComboBox<String> kodelab;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -60,7 +68,36 @@ public class LaporanController implements Initializable {
         
         String countJam = counterJam();
         countingJam.setText(countJam);
+        
+        setCombobox();
     }   
+    
+     ObservableList<String> listData = FXCollections.observableArrayList();
+    
+    
+    public void setCombobox(){        
+        try{
+            java.sql.Connection conn = (Connection)KoneksiDatabase.koneksiDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet rst = stm.executeQuery("SELECT DISTINCT kode FROM jadwal");
+                  
+            listData.add(new String("Semua"));
+                
+            while(rst.next()){
+                listData.add(new String(rst.getString("kode")));
+            }
+            
+            kodelab.setItems(listData);
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+    }
+    
+    
+    @FXML
+    void cetakJadwal(ActionEvent event) {
+        
+    }
     
     
       @FXML
